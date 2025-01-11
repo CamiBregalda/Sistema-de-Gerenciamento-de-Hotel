@@ -1,4 +1,4 @@
-import TripService from "../service/trip.service"
+import ReservaService from "../service/reserva.service"
 
 export class ReservaController {
     private reservaService: ReservaService

@@ -1,13 +1,8 @@
 import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from 'zod';
-import { TripController } from "../controller/trip.controller";
 import { env } from "../env";
-import { ParticipantController } from "../controller/participant.controller";
-import { ActivityController } from "../controller/activity.controller";
-import { LinkController } from "../controller/link.controller";
-import { Activity } from "../model/Activity";
-import { Link } from "../model/Link";
+import { ReservaController } from "../controller/reserva.controller";
 
 
 export class Routes {
