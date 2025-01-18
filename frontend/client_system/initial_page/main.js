@@ -67,7 +67,7 @@ async function carregarServicos() {
         // Convertendo os dados para JSON
         const servicos = await response.json();
 
-        for(let i = 0; i < servicos.lenght; i++){
+        for(let i = 0; i < servicos.length; i++){
             const classe = i % 2;
             const servicoHTML =  `
                 <div class="atracao${classe}">
