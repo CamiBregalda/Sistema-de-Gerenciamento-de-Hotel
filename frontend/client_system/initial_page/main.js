@@ -23,7 +23,7 @@ async function carregarPacotes() {
         pacotes.forEach(pacote => {
             const pacoteHTML = `
                 <div class="pacote">
-                    <img src="../img/pacotes/${pacote.imagem}" alt="${pacote.nome}">
+                    <img src="../../img/pacotes/${pacote.imagem}" alt="${pacote.nome}">
                     <div>
                         <h3>${pacote.nome}</h3>
                         <p>${pacote.descricao}</p>
@@ -64,7 +64,7 @@ async function carregarServicos() {
             const classe = i % 2;
             const servicoHTML =  `
                 <div class="atracao${classe}">
-                    <img src="../img/servicos/${servicos[i].imagem}" alt="${servicos[i].nome}">
+                    <img src="../../img/servicos/${servicos[i].imagem}" alt="${servicos[i].nome}">
                     <div>
                         <h3>${servicos[i].nome}</h3>
                         <p>${servicos[i].descricao}</p>
