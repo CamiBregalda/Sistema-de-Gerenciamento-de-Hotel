@@ -1,5 +1,5 @@
 // Caminho para o arquivo JSON
-const jsonFilePath = "../../json/pacotes-hotel.json";
+const pacotesJson = "../../json/pacotes-hotel.json";
 
 const container = document.querySelector('.pacotes');
 
@@ -7,7 +7,8 @@ const container = document.querySelector('.pacotes');
 async function carregarPacotes() {
     try {
         // Carregando os dados do arquivo JSON
-        const response = await fetch(jsonFilePath);
+        const response = await fetch(pacotesJson);
+
 
         // Verificando se o arquivo foi encontrado
         if (!response.ok) {
@@ -16,12 +17,13 @@ async function carregarPacotes() {
 
         // Convertendo os dados para JSON
         const pacotes = await response.json();
+        
 
         // Iterando sobre os pacotes e adicionando ao HTML
         pacotes.forEach(pacote => {
             const pacoteHTML = `
                 <div class="pacote">
-                    <img src="${pacote.imagem}" alt="${pacote.nome}">
+                    <img src="../img/pacotes/${pacote.imagem}" alt="${pacote.nome}">
                     <div>
                         <h3>${pacote.nome}</h3>
                         <p>${pacote.descricao}</p>
@@ -33,6 +35,8 @@ async function carregarPacotes() {
             `;
             container.innerHTML += pacoteHTML;
         });
+
+
     } catch (error) {
         console.error(error);
         container.innerHTML = `<p>Erro ao carregar os pacotes. Tente novamente mais tarde.</p>`;
