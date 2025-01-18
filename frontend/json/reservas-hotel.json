@@ -1,0 +1,103 @@
+[
+    {
+        "id": "1",
+        "dataEntrada": "2025-01-20",
+        "dataSaida": "2025-01-25",
+        "idQuarto": "1",
+        "nomeCliente": "Luiz Felipe Souza",
+        "numeroAcompanhantes": 2,
+        "contato": "+55 11 91234-5678",
+        "email": "luiz.souza@example.com"
+    },
+    {
+        "id": "2",
+        "dataEntrada": "2025-01-22",
+        "dataSaida": "2025-01-28",
+        "idQuarto": "2",
+        "nomeCliente": "João da Silva",
+        "numeroAcompanhantes": 1,
+        "contato": "+55 21 99876-5432",
+        "email": "joao.silva@example.com"
+    },
+    {
+        "id": "3",
+        "dataEntrada": "2025-02-01",
+        "dataSaida": "2025-02-05",
+        "horario": null, 
+        "idQuarto": "3",
+        "nomeCliente": "Maria Oliveira",
+        "numeroAcompanhantes": 3,
+        "contato": "+55 31 98765-4321",
+        "email": "maria.oliveira@example.com"
+    },
+    {
+        "id": "4",
+        "dataEntrada": "2025-02-10",
+        "dataSaida": "2025-02-15",
+        "idQuarto": "1",
+        "nomeCliente": "Ana Souza",
+        "numeroAcompanhantes": 0,
+        "contato": "+55 41 92345-6789",
+        "email": "ana.souza@example.com"
+    },
+    {
+        "id": "5",
+        "dataEntrada": "2025-03-05",
+        "dataSaida": "2025-03-12",
+        "idQuarto": "2",
+        "nomeCliente": "Carlos Pereira",
+        "numeroAcompanhantes": 4,
+        "contato": "+55 61 91234-5678",
+        "email": "carlos.pereira@example.com"
+    },
+    {
+        "id": "6",
+        "dataEntrada": "2025-03-15",
+        "dataSaida": "2025-03-20",
+        "idQuarto": "3",
+        "nomeCliente": "Fernanda Lima",
+        "numeroAcompanhantes": 2,
+        "contato": "+55 71 98876-5432",
+        "email": "fernanda.lima@example.com"
+    },
+    {
+        "id": "7",
+        "dataEntrada": "2025-03-25",
+        "dataSaida": "2025-03-30",
+        "idQuarto": "1",
+        "nomeCliente": "Eduardo Costa",
+        "numeroAcompanhantes": 1,
+        "contato": "+55 91 92345-6789",
+        "email": "eduardo.costa@example.com"
+    },
+    {
+        "id": "8",
+        "dataEntrada": "2025-04-01",
+        "dataSaida": "2025-04-07",
+        "idQuarto": "2",
+        "nomeCliente": "Gabriela Fernandes",
+        "numeroAcompanhantes": 3,
+        "contato": "+55 51 91234-5678",
+        "email": "gabriela.fernandes@example.com"
+    },
+    {
+        "id": "9",
+        "dataEntrada": "2025-04-10",
+        "dataSaida": "2025-04-15",
+        "idQuarto": "3",
+        "nomeCliente": "Rafael Nascimento",
+        "numeroAcompanhantes": 0,
+        "contato": "+55 81 98876-5432",
+        "email": "rafael.nascimento@example.com"
+    },
+    {
+        "id": "10",
+        "dataEntrada": "2025-04-20",
+        "dataSaida": "2025-04-25",
+        "idQuarto": "1",
+        "nomeCliente": "Larissa Alves",
+        "numeroAcompanhantes": 2,
+        "contato": "+55 31 92345-6789",
+        "email": "larissa.alves@example.com"
+    }
+]
