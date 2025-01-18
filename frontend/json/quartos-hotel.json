@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "descricao": "Suíte Amazônica Deluxe com varanda privativa, vista panorâmica da floresta e banheira de hidromassagem.",
+        "precoPorNoite": 2100.0,
+        "imagens": [
+            "1_1.png",
+            "1_2.png"
+        ]
+    },
+    {
+        "id": "2",
+        "descricao": "Suíte Master Tribo com design inspirado em culturas amazônicas, jacuzzi e espaço para meditação.",
+        "precoPorNoite": 1750.0,
+        "imagens": [
+            "2_1.jpg",
+            "2_2.jpg"
+        ]
+    },
+    {
+        "id": "3",
+        "descricao": "Quarto Standard com decoração temática, cama king-size e ar-condicionado ecológico.",
+        "precoPorNoite": 1000.0,
+        "imagens": [
+            "3_1.png",
+            "3_2.png"
+        ]
+    }
+]

@@ -1,0 +1,58 @@
+[
+    {
+        "id": "1",
+        "nome": "Aventura na Floresta Deluxe",
+        "descricao": "Um pacote exclusivo que combina conforto e aventura com atividades guiadas na floresta amazônica.",
+        "idQuarto": "1",
+        "servicosIncluidos": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"
+        ],
+        "precoTotal": 5800.0,
+        "duracaoDias": 3,
+        "imagem": "aventura-floresta.jpeg"
+    },
+    {
+        "id": "2",
+        "nome": "Relaxamento Amazônico",
+        "descricao": "Desfrute de um ambiente tranquilo e tratamentos especiais inspirados na flora local.",
+        "idQuarto": "2",
+        "servicosIncluidos": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "8",
+            "10"
+        ],
+        "precoTotal": 6500.0,
+        "duracaoDias": 5,
+        "imagem": "relaxamento-amazonico.webp"
+    },
+    {
+        "id": "3",
+        "nome": "Explorador de Ratanabá",
+        "descricao": "Pacote ideal para aventureiros que desejam explorar as maravilhas da lendária cidade perdida e sua flora.",
+        "idQuarto": "3",
+        "servicosIncluidos": [
+            "1",
+            "2",
+            "3",
+            "5",
+            "7",
+            "10"
+        ],
+        "precoTotal": 3200.0,
+        "duracaoDias": 4,
+        "imagem": "ratanaba.webp"
+    }
+]
