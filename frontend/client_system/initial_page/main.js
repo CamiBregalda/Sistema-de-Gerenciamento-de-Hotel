@@ -1,6 +1,6 @@
 // Caminho para o arquivo JSON
 const pacotesJson = "../../json/pacotes-hotel.json";
-const servicosJson = "../../json/servicos.json";
+const servicosJson = "../../json/servicos-hotel.json";
 
 const pacotesClasse = document.querySelector('.pacotes');
 const atracoesClasse = document.querySelector('.atracoes');
@@ -79,7 +79,7 @@ async function carregarServicos() {
 
     } catch (error) {
         console.error(error);
-        atracoesClasse.innerHTML = `<p>Erro ao carregar os servicos. Tente novamente mais tarde.</p>`;
+        atracoesClasse.innerHTML = `<p>Erro ao carregar os serviços. Tente novamente mais tarde.</p>`;
     }
 }
 
