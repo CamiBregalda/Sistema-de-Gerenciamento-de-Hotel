@@ -2,15 +2,14 @@
 const pacotesJson = "../../json/pacotes-hotel.json";
 const servicosJson = "../../json/servicos.json";
 
-const container = document.querySelector('.pacotes');
-const atracoes = document.querySelector('.atracoes');
+const pacotesClasse = document.querySelector('.pacotes');
+const atracoesClasse = document.querySelector('.atracoes');
 
 // Função para carregar e renderizar os pacotes
 async function carregarPacotes() {
     try {
         // Carregando os dados do arquivo JSON
         const response = await fetch(pacotesJson);
-
 
         // Verificando se o arquivo foi encontrado
         if (!response.ok) {
@@ -19,7 +18,6 @@ async function carregarPacotes() {
 
         // Convertendo os dados para JSON
         const pacotes = await response.json();
-
 
         // Iterando sobre os pacotes e adicionando ao HTML
         pacotes.forEach(pacote => {
@@ -35,13 +33,12 @@ async function carregarPacotes() {
                     </div>
                 </div>
             `;
-            container.innerHTML += pacoteHTML;
+            pacotesClasse.innerHTML += pacoteHTML;
         });
-
 
     } catch (error) {
         console.error(error);
-        container.innerHTML = `<p>Erro ao carregar os pacotes. Tente novamente mais tarde.</p>`;
+        pacotesClasse.innerHTML = `<p>Erro ao carregar os pacotes. Tente novamente mais tarde.</p>`;
     }
 }
 
@@ -50,14 +47,10 @@ function comprarPacote(id) {
     alert(`Pacote ${id} selecionado para compra!`);
 }
 
-// Carregar os pacotes ao carregar a página
-carregarPacotes();
-
 async function carregarServicos() {
     try {
         // Carregando os dados do arquivo JSON
         const response = await fetch(servicosJson);
-
 
         // Verificando se o arquivo foi encontrado
         if (!response.ok) {
@@ -81,13 +74,12 @@ async function carregarServicos() {
                     </div>
                 </div>
             `;
-            container.innerHTML += servicoHTML;
+            atracoesClasse.innerHTML += servicoHTML;
         }
-
 
     } catch (error) {
         console.error(error);
-        container.innerHTML = `<p>Erro ao carregar os servicos. Tente novamente mais tarde.</p>`;
+        atracoesClasse.innerHTML = `<p>Erro ao carregar os servicos. Tente novamente mais tarde.</p>`;
     }
 }
 
@@ -96,5 +88,6 @@ function comprarServico(id) {
     alert(`Serviços ${id} selecionado para compra!`);
 }
 
-// Carregar os pacotes ao carregar a página
+
+carregarPacotes();
 carregarServicos();
