@@ -51,15 +51,51 @@ header a{
 }
 
 #teste{
-    background-image: url(./resort-plano-de-fundo.jpg);
+    background-image: linear-gradient(rgba(4, 48, 52, 0.1), rgba(52, 52, 52, 0.6)), url(./resort-plano-de-fundo.jpg);
     height: 30vw;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-/*background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
-                  url("../../media/examples/lizard.png");*/
+section .container{
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container .pacotes{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: justify;
+    justify-content: space-around;
+}
+
+.pacotes .pacote{
+    width: 25%;
+    padding: 15px;
+    border: 1px solid #dab836;
+}
+
+.pacote div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1vw;
+}
+
+.pacote img{
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+h2{
+    font-family: 'cinzel';
+    font-size: 2vw;
+    color: #043034;
+    margin: 3vw auto;
+}
+
 
 /*
 #teste {
