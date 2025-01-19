@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     overflow-x: hidden;
 }
 
@@ -13,8 +12,7 @@
 }
 
 header{
-    background-color: #043034;
-    padding: 10px;
+    background-color: #340404;
 }
 
 header img{
@@ -71,6 +69,7 @@ section .container{
 }
 
 .pacotes .pacote{
+    background-color: #5e080878;
     width: 25%;
     padding: 15px;
     border: 1px solid #dab836;
@@ -92,8 +91,8 @@ section .container{
 h2{ font-style: italic;
     font-family: 'cinzel';
     font-size: 2vw;
-    color: #043034;
-    margin: 3vw auto;
+    color: #8a1616;
+    margin: 5vw auto;
 }
 
 h3,
@@ -102,7 +101,9 @@ button{
 }
 
 button{
-    padding: 3px;
+    padding: 8px 30px;
+    border: 1px solid #6c6c6c;
+    background-color: white;
 }
 
 .container .atracoes{
@@ -115,24 +116,32 @@ button{
 .atracoes .atracao0{
     display: flex;
     align-items: center;
-    width: 50%;
-    height: 250px;
+    width: 60%;
+    height: 20vw;
     margin: 4vw;
+    padding-right: 4vw;
+    border-radius: 40px;
+    gap: 10%;
+    box-shadow: 0 0 60px 3px #6d6666;
 }
 
 .atracoes .atracao1{
     display: flex;
     align-items: center;
-    width: 50%;
-    height: 250px;
+    width: 60%;
+    height: 20vw;
     margin: 4vw;
+    padding-left: 3vw;
+    border-radius: 40px;
+    gap: 10%;
     flex-direction: row-reverse;
+    box-shadow: 0 0 70px 3px #8d8d8db1;
 }
 
 .atracoes img{
     border-radius: 40px;
     width: 100%;
-    height: 15vw;
+    height: 20vw;
     object-fit: cover;
 }
 
