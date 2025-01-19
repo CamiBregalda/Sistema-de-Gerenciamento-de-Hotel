@@ -89,15 +89,51 @@ section .container{
     object-fit: cover;
 }
 
-h2{
+h2{ font-style: italic;
     font-family: 'cinzel';
     font-size: 2vw;
     color: #043034;
     margin: 3vw auto;
 }
 
+h3,
+button{
+    font-family: 'cinzel';
+}
+
 button{
     padding: 3px;
+}
+
+.container .atracoes{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: justify;
+    justify-content: space-evenly;
+}
+
+.atracoes .atracao0{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 250px;
+    margin: 4vw;
+}
+
+.atracoes .atracao1{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 250px;
+    margin: 4vw;
+    flex-direction: row-reverse;
+}
+
+.atracoes img{
+    border-radius: 40px;
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
 }
 
 /*
