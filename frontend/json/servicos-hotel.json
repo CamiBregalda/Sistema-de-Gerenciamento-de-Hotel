@@ -1,61 +1,61 @@
 [
     {
         "id": "1",
-        "nome": "Wi-Fi gratuito",
+        "nome": "wi-Fi gratuito",
         "imagem": "wifi.png",
         "descricao": "Conexão Wi-Fi de alta velocidade disponível em todas as áreas do hotel."
     },
     {
         "id": "2",
-        "nome": "Café da manhã incluso",
+        "nome": "café da manhã incluso",
         "imagem": "cafe-da-manha.jpg",
         "descricao": "Desfrute de um café da manhã completo com opções locais e internacionais."
     },
     {
         "id": "3",
-        "nome": "Restaurante gourmet com pratos amazônicos",
+        "nome": "restaurante gourmet com pratos amazônicos",
         "imagem": "restaurante-gourmet.png",
         "descricao": "Experimente pratos únicos feitos com ingredientes frescos da Amazônia."
     },
     {
         "id": "4",
-        "nome": "Piscina com borda infinita vista para a selva",
+        "nome": "piscina com borda infinita vista para a selva",
         "imagem": "piscina-infinita.webp",
         "descricao": "Relaxe em uma piscina de borda infinita com uma vista deslumbrante da floresta."
     },
     {
         "id": "5",
-        "nome": "Academia",
+        "nome": "academia",
         "imagem": "academia.jpg",
         "descricao": "Uma academia bem equipada para manter sua rotina de exercícios."
     },
     {
         "id": "6",
-        "nome": "Serviço de quarto 24 horas",
+        "nome": "serviço de quarto 24 horas",
         "imagem": "servico-quarto.webp",
         "descricao": "Aproveite refeições e serviços no conforto do seu quarto a qualquer hora."
     },
     {
         "id": "7",
-        "nome": "Trilhas guiadas pela floresta",
+        "nome": "trilhas guiadas pela floresta",
         "imagem": "trilhas-floresta.png",
         "descricao": "Explore a floresta amazônica com guias experientes e seguros."
     },
     {
         "id": "8",
-        "nome": "Spa com tratamentos inspirados em ervas locais",
+        "nome": "spa com tratamentos inspirados em ervas locais",
         "imagem": "spa-ervas.jpg",
         "descricao": "Relaxe e rejuvenesça com tratamentos exclusivos baseados em ervas locais."
     },
     {
         "id": "9",
-        "nome": "Heliponto para acesso exclusivo",
+        "nome": "heliponto para acesso exclusivo",
         "imagem": "heliponto.webp",
         "descricao": "Chegue com conforto e privacidade utilizando nosso heliponto exclusivo."
     },
     {
         "id": "10",
-        "nome": "Estacionamento privativo",
+        "nome": "estacionamento privativo",
         "imagem": "estacionamento.png",
         "descricao": "Garanta a segurança do seu veículo com nosso estacionamento privativo."
     }
