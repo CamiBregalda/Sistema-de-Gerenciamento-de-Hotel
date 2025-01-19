@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.container2{
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#servicos-hotel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.servicos {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Cantos arredondados */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.servicos-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.servicos button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.servicos button.edit-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.servicos button.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.add-servicos-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+.add-servicos-btn:hover {
+    background-color: #218838;
+}
+
+.servicos button:hover {
+    opacity: 0.9;
+}
