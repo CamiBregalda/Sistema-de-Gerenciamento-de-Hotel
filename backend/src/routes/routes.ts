@@ -1,30 +1,55 @@
-import { FastifyInstance } from "fastify";
-import { ZodTypeProvider } from "fastify-type-provider-zod";
-import { z } from 'zod';
-import { env } from "../env";
-import { ReservaController } from "../controller/reserva.controller";
+const hotelJson = "../../../frontend/json/hotel-info.json";
+const servicosJson = "../../../frontend/json/servicos-hotel.json";
 
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
+
+const hotelInfoPath = path.join(__dirname, hotelJson);
+const servicosPath = path.join(__dirname, servicosJson);
 
 export class Routes {
-    private reservaController: ReservaController;
+    routes(app: any) {
+        app.get('/recanto-perdido', (req, res) => {
+            fs.readFile(hotelInfoPath, 'utf8', (err, data) => {
+                if (err) {
+                    return res.status(500).json({ message: 'Erro ao ler o arquivo jotel-info.json.' });
+                }
+                res.json(JSON.parse(data));
+            });
+        });
 
-    constructor() {
-        this.reservaController = new ReservaController()
-    }
+        app.post('/recanto-perdido', (req, res) => {
+            const updatedHotelInfo = req.body;
 
-    routes(app: FastifyInstance) {
+            // Salvando os dados no arquivo JSON
+            fs.writeFile(hotelInfoPath, JSON.stringify(updatedHotelInfo, null, 2), 'utf8', (err) => {
+                if (err) {
+                    return res.status(500).json({ message: 'Erro ao salvar o arquivo.' });
+                }
+                res.json({ message: 'Informações do hotel atualizadas com sucesso!' });
+            });
+        });
 
-        //Buscar detalhes da viagem pelo id
-        app.withTypeProvider<ZodTypeProvider>().get(`/reservas/:reservaId`, {
-            schema: {
-                params: z.object({
-                    reservaId: z.string().uuid()
-                })
-            },
-        }, async (request) => {
-            const { reservaId } = request.params
-            return await this.reservaController.buscarDetalhesReserva(reservaId)
-        })
+        app.get('/recanto-perdido/servicos', (req, res) => {
+            fs.readFile(servicosPath, 'utf8', (err, data) => {
+                if (err) {
+                    return res.status(500).json({ message: 'Erro ao ler o arquivo servicos-hotel.json' });
+                }
+                res.json(JSON.parse(data));
+            });
+        });
 
-    }
+        app.post('/recanto-perdido/servicos', (req, res) => {
+            const updatedServicos = req.body;
+
+            // Salvando os dados no arquivo JSON
+            fs.writeFile(servicosPath, JSON.stringify(updatedServicos, null, 2), 'utf8', (err) => {
+                if (err) {
+                    return res.status(500).json({ message: 'Erro ao salvar o arquivo.' });
+                }
+                res.json({ message: 'Informações de serviços atualizadas com sucesso!' });
+            });
+        });
+    }   
 }

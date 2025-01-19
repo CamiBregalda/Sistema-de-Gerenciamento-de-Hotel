@@ -1,31 +1,22 @@
-import cors from "@fastify/cors";
-import fastify from "fastify";
-import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod";
-import { errorHandler } from "./error-handler";
 import { Routes } from "./routes/routes";
+import cors from 'cors';
 
-const app = fastify()
+const express = require("express");
+const app = express();
+const port = 8080;
+
+app.use(cors());
+app.use(express.json());
 
 class App {
-    private routesPrev: Routes
+    private routesPrev: Routes;
 
     constructor() {
-        this.routesPrev = new Routes()
-
-        var corsOptions = {
-            origin: '*',
-        }
-
-        app.register(cors, corsOptions);
-
-        app.setValidatorCompiler(validatorCompiler);
-        app.setSerializerCompiler(serializerCompiler);
-
-        app.setErrorHandler(errorHandler);
+        this.routesPrev = new Routes();
     }
 
     config() {
-        this.routesPrev.routes(app)
+        this.routesPrev.routes(app);
     }
 
     getApp() {
