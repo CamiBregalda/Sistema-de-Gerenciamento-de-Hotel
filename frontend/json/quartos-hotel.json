@@ -3,6 +3,7 @@
         "id": "1",
         "descricao": "Suíte Amazônica Deluxe com varanda privativa, vista panorâmica da floresta e banheira de hidromassagem.",
         "precoPorNoite": 2100.0,
+        "subterraneo": false,
         "imagens": [
             "1_1.png",
             "1_2.png"
@@ -12,6 +13,7 @@
         "id": "2",
         "descricao": "Suíte Master Tribo com design inspirado em culturas amazônicas, jacuzzi e espaço para meditação.",
         "precoPorNoite": 1750.0,
+        "subterraneo": false,
         "imagens": [
             "2_1.jpg",
             "2_2.jpg"
@@ -21,9 +23,30 @@
         "id": "3",
         "descricao": "Quarto Standard com decoração temática, cama king-size e ar-condicionado ecológico.",
         "precoPorNoite": 1000.0,
+        "subterraneo": false,
         "imagens": [
             "3_1.png",
             "3_2.png"
+        ]
+    },
+    {
+        "id": "4",
+        "descricao": "Quarto subsolo com cachoeira particular, cama de casal e poções de conhecimento, tradicionais de ratanabá.",
+        "precoPorNoite": 3000.0,
+        "subterraneo": true,
+        "imagens": [
+            "4_1.png",
+            "4_2.png"
+        ]
+    },
+    {
+        "id": "5",
+        "descricao": "Quarto tradicional do povo Muril, iluminação a partir de pedras brilhantes e quarto favorito do E.T Bilu",
+        "precoPorNoite": 1800.0,
+        "subterraneo": true,
+        "imagens": [
+            "5_1.png",
+            "5_2.png"
         ]
     }
 ]
