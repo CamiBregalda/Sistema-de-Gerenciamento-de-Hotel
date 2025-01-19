@@ -11,17 +11,34 @@
     align-items: center;
 }
 
+a,
+h2,
+h3,
+button{
+    font-family: 'cinzel';
+}
+
+p,
+h4{
+    font-family: "Old Standard TT";
+    font-weight: lighter;
+}
+
+h4{
+    font-style: italic;
+}
+
 header{
-    background-color: #340404;
+    background-color: #0d3010;
 }
 
 header img{
-    margin: 1vw auto;
     width: 200px;
     margin-left: 2vw;
 }
 
-nav{
+nav,
+footer .sugestao{
     display: flex;
     flex: 1;
     justify-content: center;
@@ -41,7 +58,6 @@ header li{
 }
 
 header a{
-    font-family: 'cinzel';
     color: #dab836;
     text-decoration: none;
     font-size: 16px;
@@ -49,8 +65,8 @@ header a{
 }
 
 #teste{
-    background-image: linear-gradient(rgba(4, 48, 52, 0.1), rgba(52, 52, 52, 0.6)), url(./resort-plano-de-fundo.jpg);
-    height: 30vw;
+    background-image: linear-gradient(rgba(4, 48, 52, 0.1), rgba(52, 52, 52, 0.6)), url(./plano-de-fundo-ratanabá.jpg);
+    height: 35vw;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -61,25 +77,31 @@ section .container{
     justify-content: center;
 }
 
+#pack .container{
+    background-color: #0d3010;
+}
+
 .container .pacotes{
     display: flex;
     flex-wrap: wrap;
     text-align: justify;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    margin-bottom: 3vw;
 }
 
 .pacotes .pacote{
-    background-color: #5e080878;
-    width: 25%;
-    padding: 15px;
-    border: 1px solid #dab836;
+    background-color:#fff;
+    width: 23%;
+    border: 1px solid #f0cd20;
+    align-items: start;
 }
 
 .pacote div{
+    margin-top: 2vw;
+    padding: 1vw;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1vw;
+    flex-wrap: wrap;    
+    gap: 2vw;
 }
 
 .pacote img{
@@ -89,21 +111,18 @@ section .container{
 }
 
 h2{ font-style: italic;
-    font-family: 'cinzel';
     font-size: 2vw;
-    color: #8a1616;
+    color: #ab9217;
     margin: 5vw auto;
 }
 
-h3,
 button{
-    font-family: 'cinzel';
-}
-
-button{
-    padding: 8px 30px;
-    border: 1px solid #6c6c6c;
-    background-color: white;
+    border-radius: 10px;
+    text-align: start;
+    color: white;
+    padding: 13px 15%;
+    border:  none;
+    background-color: #316d45;
 }
 
 .container .atracoes{
@@ -113,29 +132,25 @@ button{
     justify-content: space-evenly;
 }
 
-.atracoes .atracao0{
-    display: flex;
-    align-items: center;
-    width: 60%;
-    height: 20vw;
-    margin: 4vw;
-    padding-right: 4vw;
-    border-radius: 40px;
-    gap: 10%;
-    box-shadow: 0 0 60px 3px #6d6666;
-}
-
+.atracoes .atracao0,
 .atracoes .atracao1{
     display: flex;
     align-items: center;
     width: 60%;
     height: 20vw;
-    margin: 4vw;
-    padding-left: 3vw;
+    margin: 3vw;
     border-radius: 40px;
     gap: 10%;
+    box-shadow: 0 0 60px 3px #66956c;
+}
+
+.atracoes .atracao0{
+    padding-right: 4vw;
+}
+
+.atracoes .atracao1{
+    padding-left: 3vw;
     flex-direction: row-reverse;
-    box-shadow: 0 0 70px 3px #8d8d8db1;
 }
 
 .atracoes img{
@@ -145,16 +160,59 @@ button{
     object-fit: cover;
 }
 
-/*
-#teste {
-    width: 100%;
-    height: 30vw;
+footer{
+    background-color: #0d3010;
+    padding: 20px;
+    color: #fff;
 }
 
-.img-container{
-   object-fit: cover;
-    width: 100%;
-    height: 100%;
+footer img{
+    height: 20px;
 }
-*/
-/*#043034 - cor da logo*/
+
+#contact{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5vw;
+}
+
+footer .metodosContato{
+    flex-direction: column-reverse;
+    display: flex;
+    flex-direction: column;
+    padding-left: 4vw;
+    gap: 2vw;
+}
+
+footer .contato div{
+    margin-top: 1vw;
+}
+
+footer .sugestao{
+    flex-direction: column;
+    gap: 1vw;
+}
+
+form input,
+form textarea{
+    background-color: #59c766;
+    display: block;
+    width: 320px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+::placeholder{
+    color: white;
+    font-family: "Old Standard TT";
+}
+
+form textarea{
+    resize: none;
+    height: 4vw;
+}
+footer h3{
+    font-style: italic;
+    color: #4d9d56;
+}
