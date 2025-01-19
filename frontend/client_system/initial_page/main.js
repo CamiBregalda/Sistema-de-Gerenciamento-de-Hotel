@@ -68,9 +68,6 @@ async function carregarServicos() {
                     <div>
                         <h3>${servicos[i].nome}</h3>
                         <p>${servicos[i].descricao}</p>
-                        <button onclick="comprarServico(${servicos[i].id})">
-                            Comprar
-                        </button>
                     </div>
                 </div>
             `;
