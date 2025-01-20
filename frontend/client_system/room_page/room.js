@@ -57,7 +57,7 @@ async function carregarQuartos(classeQuartoContainer, filtro) {
                 </div>
             `;
            
-            quartoArvoreClasse.innerHTML += quartoHTML;
+            classeQuartoContainer.innerHTML += quartoHTML;
         })
 
         //configura os carrosséis
@@ -70,19 +70,19 @@ async function carregarQuartos(classeQuartoContainer, filtro) {
 }
 
 function configuraCarrosseis(container) {
-    const carrosselContainers = container.querySelectorAll('carrossel');
+    const carrosselContainers = container.querySelectorAll('.carrossel');
 
     carrosselContainers.forEach(carrosselContainer =>{
         const carrossel = carrosselContainer.querySelector('.foto');
         const btnAnterior = carrosselContainer.querySelector('.prev');
-        const ntnProximo = carrosselContainer.querySelector('.next');
+        const btnProximo = carrosselContainer.querySelector('.next');
 
         const numImagens = carrossel.children.length;
 
         let indexAtual = 0;
 
         function atualizar(){
-            carrossel.style.transform = `translateX(-${currentIndex * 100}%)`; //mover a imagem de maneira horizontal
+            carrossel.style.transform = `translateX(-${indexAtual * 100}%)`; //mover a imagem de maneira horizontal
         }
 
         btnAnterior.addEventListener('click', () =>{
@@ -90,7 +90,7 @@ function configuraCarrosseis(container) {
             atualizar();
         });
 
-        ntnProximo.addEventListener('click', () =>{
+        btnProximo.addEventListener('click', () =>{
             indexAtual = (indexAtual + 1) % numImagens;
             atualizar();
         });
@@ -98,5 +98,5 @@ function configuraCarrosseis(container) {
     });
 }
 
-carregarQuartos(quartoArvoreClasse, quarto => !quarto.chao);
-carregarQuartos(quartoSoloClasse, quarto => quarto.chao);
+carregarQuartos(quartoArvoreClasse, quarto => !quarto.subterraneo);
+carregarQuartos(quartoSoloClasse, quarto => quarto.subterraneo);
