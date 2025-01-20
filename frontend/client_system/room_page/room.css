@@ -64,4 +64,63 @@ section .container{
     background-size: cover;
 }
 
+.quarto{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30vw;
+    height: 40vw;
+}
+
+.carrossel{
+    align-items: center;
+    margin: auto;
+    object-fit: cover;
+    position: relative;
+}
+
+.foto {
+    display: flex;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.foto img{
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+button .next,
+button .prev{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 /*utilizar position relative para o texto e refazer a formatação (por conta da adição do carrossel)*/
+
+/*  Como ficaria o container 
+        
+        <div class="quarto">
+            <div class="carrossel">
+                <button class="prev">&lt;</button>
+                <div class="foto">
+                    ${imagens.map(imagem => `
+                        <img src="../../img/quartos/${imagem}" alt="Imagem do quarto">
+                    `).join('')}
+                </div>
+                <button class="next">&gt;</button>
+            </div>
+            
+            <div class = "texto">
+                <h3>${quarto.id}</h3>
+                <div>
+                    <p>${quarto.descricao}</p>
+                    <p> preço: ${quarto.preco}</p>
+                    <button> comprar </button>
+                </div>
+            </div>
+        </div>
+*/

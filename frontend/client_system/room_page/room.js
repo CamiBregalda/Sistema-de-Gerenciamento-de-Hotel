@@ -9,12 +9,13 @@ function criarCarrossel(imagens) {
     //map juntamente ao join está transformando o array das imagens, em uma string com várias img
     return `
         <div class="carrossel">
-            <button class="prev">&lt;</button>
             <div class="foto">
                 ${imagens.map(imagem => `
                     <img src="../../img/quartos/${imagem}" alt="Imagem do quarto">
                 `).join('')}
             </div>
+
+            <button class="prev">&lt;</button>
             <button class="next">&gt;</button>
         </div>`;
 }
