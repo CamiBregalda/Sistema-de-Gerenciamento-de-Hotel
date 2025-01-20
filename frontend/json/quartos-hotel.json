@@ -35,8 +35,8 @@
         "precoPorNoite": 3000.0,
         "subterraneo": true,
         "imagens": [
-            "4_1.png",
-            "4_2.png"
+            "4_1.jpg",
+            "4_2.jpg"
         ]
     },
     {
@@ -45,8 +45,8 @@
         "precoPorNoite": 1800.0,
         "subterraneo": true,
         "imagens": [
-            "5_1.png",
-            "5_2.png"
+            "5_1.jpg",
+            "5_2.jpg"
         ]
     }
 ]
