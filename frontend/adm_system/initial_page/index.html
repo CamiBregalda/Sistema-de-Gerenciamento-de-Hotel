@@ -70,29 +70,47 @@
             <div id="servicos-hotel">
                 <!-- Os serviços serão listados aqui dinamicamente -->
             </div>
-            <button id="add-servicos" class="add-servicos-btn">Adicionar Serviço</button>
+            <button id="add-servicos" class="add-servicos-btn" onclick="mostrarModal('adicionar', null)">Adicionar Serviço</button>
         </div>
     </section>
 
     <section>
         <div id="modal">
-            <h3>Formulário</h3>
-            <div class="form-group">
-                <label for="name">Nome:</label>
-                <input type="text" id="name" placeholder="Digite seu nome">
+            <h3 id="modalTitulo">Adicionar Serviço</h3>
+            <div class="form-modal">
+                <label for="nomeServico">Nome:</label>
+                <input type="text" id="nomeServico" placeholder="Digite o nome do serviço">
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Digite seu email">
+            <div class="form-modal">
+                <label for="descricaoServico">Descrição:</label>
+                    <textarea id="descricaoServico" name="descricaoServico" placeholder="Digite a descrição do serviço"></textarea>
+            </div>
+            <div class="form-modal">
+                <label for="fotoServico">Foto:</label>
+                <input type="file" id="fotoServico" name="fotoServico">
             </div>
             <div class="buttons">
-                <button onclick="closeModal()">Cancelar</button>
-                <button onclick="submitForm()">Enviar</button>
+                <button onclick="fecharModal()">Cancelar</button>
+                <button id="modalBotao" onclick="addServico()">Adicionar Serviço</button>
             </div>
         </div>
-    
-        <button onclick="showModal()">Abrir Formulário</button>
     </section>
+<!--
+    <section id="imageGallery" style="display: none;">
+        <div id="galleryModal">
+            <h3>Galeria de Imagens do Hotel</h3>
+            <div id="imageContainer" class="image-container">
+                Imagens serão carregadas dinamicamente aqui
+            </div>
+            <div class="gallery-buttons">
+                <button onclick="fecharGaleria()">Fechar</button>
+                <label for="addImageInput" class="add-image-label">Adicionar Imagem</label>
+                <input type="file" id="addImageInput" style="display: none;" onchange="salvarImagemHotel(event)">
+            </div>
+        </div>
+    </section>
+-->
+    
     
     <script src="main.js"></script>
 </body>

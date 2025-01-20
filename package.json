@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-      "dev": "npm run dev --prefix backend"
+    "dev": "npm run dev --prefix backend"
   },
   "devDependencies": {
     "@types/node": "^22.10.7",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "multer": "^1.4.5-lts.1"
   }
 }
