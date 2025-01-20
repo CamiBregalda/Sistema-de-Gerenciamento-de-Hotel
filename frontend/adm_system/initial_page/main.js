@@ -35,7 +35,7 @@ async function carregarServicos() {
         servicoDiv.innerHTML = `
         <span>${servico.nome}</span>
         <div class="servicos-btns">
-            <button class="edit-btn" onclick="editServico(${servico.id})">Editar</button>
+            <button class="edit-btn" onclick="mostrarModal('atualizar', ${servico.id})">Editar</button>
             <button class="delete-btn" onclick="deleteServico(${servico.id})">Excluir</button>
         </div>
         `;
@@ -109,40 +109,95 @@ async function salvarAtualizacoes(event) {
 document.getElementById('update-hotel-info').addEventListener('submit', salvarAtualizacoes);
 //document.getElementById('enderecoForm').addEventListener('submit', salvarAtualizacoes);
 */
+function mostrarModal(acao, id) {
+    document.getElementById('modal').classList.add('active');
+
+    document.getElementById('nomeServico').value = '';
+    document.getElementById('descricaoServico').value = '';
+    document.getElementById('fotoServico').value = '';
+
+    if (acao === "atualizar") {
+        document.getElementById('nomeServico').value = `${servicos.find((s) => s.id === id.toString()).nome}`;
+        document.getElementById('descricaoServico').value = `${servicos.find((s) => s.id === id.toString()).descricao}`;
+        document.getElementById('fotoServico').value = '';
+
+        document.getElementById('modalTitulo').innerText = 'Atualizar Serviço';
+        document.getElementById('modalBotao').innerText = 'Atualizar Serviço';
+        document.getElementById('modalBotao').setAttribute(`onclick', 'updateServico(${id})`);
+    } else if (acao === "adicionar") {
+        document.getElementById('modalTitulo').innerText = 'Adicionar Serviço';
+        document.getElementById('modalBotao').innerText = 'Adicionar Serviço';
+        document.getElementById('modalBotao').setAttribute('onclick', 'addServico()');
+    }
+}
+
+function fecharModal() {
+    document.getElementById('modal').classList.remove('active');
+}
+
 // Função para adicionar um novo serviço
 function addServico() {
-    showModal();
-    const novoNome = "teste";
-    const novaDescricao = "teste";
-    if (novoNome) {
+    const novoNome = document.getElementById('nomeServico').value;
+    const novaDescricao = document.getElementById('descricaoServico').value;
+    const arquivo = document.getElementById('fotoServico').files[0];
+
+    if (novoNome && novaDescricao && arquivo) {
         const ultimoId = servicos.reduce((maxId, servico) => Math.max(maxId, parseInt(servico.id)), 0)
+
         const novoServico = { 
             id: (ultimoId + 1).toString(), 
             nome: novoNome,
-            descricao: novaDescricao 
+            descricao: novaDescricao,
+            foto: arquivo.name
         };
+
         servicos.push(novoServico);
-        //salvarServicos();
+
+        salvarServicos();
+        salvarImagemServico(arquivo);
+        fecharModal();
         carregarServicos();
+    } else {
+        alert("Por favor, preencha todos os campos.");
     }
 }
 
 // Função para editar um serviço
-function editServico(id) {
+function updateServico(id) {
+    console.log(id);
+    const novoNome = document.getElementById('nomeServico').value;
+    const novaDescricao = document.getElementById('descricaoServico').value;
+    const arquivo = document.getElementById('fotoServico').files[0];
+
     const servico = servicos.find((s) => s.id === id.toString());
-    const novoNome = prompt('Edite o nome do serviço:', servico.nome);
+    
     if (novoNome) {
         servico.nome = novoNome;
-        salvarServicos();
-        carregarServicos();
     }
+
+    if (novaDescricao) {
+        servico.nome = novaDescricao;
+    }
+
+    if (arquivo) {
+        excluirImagemServico(servico.foto);
+        servico.foto = arquivo.name;
+        salvarImagemServico(arquivo);
+    }
+    
+    salvarServicos();
+    fecharModal();
+    carregarServicos();
 }
 
 // Função para excluir um serviço
 function deleteServico(id) {
+    const servico = servicos.find((s) => s.id === id.toString());
+
     if (confirm('Tem certeza de que deseja excluir este serviço?')) {
         servicos = servicos.filter((s) => s.id !== id.toString());
         salvarServicos();
+        excluirImagemServico(servico.foto);
         carregarServicos();
     }
 }
@@ -159,28 +214,99 @@ async function salvarServicos() {
     alert(result.message); 
 }
 
-document.getElementById('add-servicos').addEventListener('click', addServico);
+async function salvarImagemServico(arquivo) {
+    const formData = new FormData();
+    formData.append('fotoServico', arquivo);
+
+    const response = await fetch('http://localhost:8080/recanto-perdido/servicos/imagem', {
+        method: 'POST',
+        body: formData,
+    });
+
+    const result = await response.json();
+    alert(result.message); 
+}
+
+async function excluirImagemServico(foto) {
+    console.log(foto);
+    const response = await fetch(`http://localhost:8080/recanto-perdido/servicos/imagem/${foto}`, {
+        method: 'DELETE',
+    });
+
+    const result = await response.json();
+    alert(result.message);
+}
+
 
 carregarHotelInfo();
 carregarServicos();
-
-
-
-function showModal() {
-    document.getElementById('modal').classList.add('active');
+/*
+// Abrir a galeria
+function abrirGaleria() {
+    document.getElementById('imageGallery').style.display = 'flex';
+    carregarImagens();
 }
 
-function closeModal() {
-    document.getElementById('modal').classList.remove('active');
+// Fechar a galeria
+function fecharGaleria() {
+    document.getElementById('imageGallery').style.display = 'none';
 }
 
-function submitForm() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    if (name && email) {
-        alert(`Nome: ${name}\nEmail: ${email}`);
-        closeModal();
-    } else {
-        alert("Por favor, preencha todos os campos.");
-    }
+async function carregarImagens() {
+    const response = await fetch('http://localhost:8080/recanto-perdido');
+    const hotel = await response.json();
+
+    hotelImages = hotel.imagens;
+    console.log(hotelImages);
+
+    const container = document.getElementById('imageContainer');
+    container.innerHTML = ''; // Limpa o container antes de carregar novas imagens
+
+    hotelImages.forEach((image, index) => {
+        const div = document.createElement('div');
+        div.classList.add('image-item');
+
+        const img = document.createElement('img');
+        img.src = `http://localhost:8080/recanto-perdido/imagem/${image}`;
+        img.alt = `Imagem ${index + 1}`;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.innerText = 'X';
+        deleteButton.onclick = () => excluirImagemHotel(image);
+
+        div.appendChild(img);
+        div.appendChild(deleteButton);
+        container.appendChild(div);
+    });
+}*/
+
+async function salvarImagemHotel(event) {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append('fotoHotel', file);
+
+    hotelInfo.imagens.push(file.name);
+
+    const response = await fetch('http://localhost:8080/recanto-perdido/imagem', {
+        method: 'POST',
+        body: formData,
+    });
+
+    const result = await response.json();
+    alert(result.message); 
 }
+
+async function excluirImagemHotel(foto) {
+    hotelImages = hotelInfo.imagens.filter((img) => img !== imageName);    
+
+    const response = await fetch(`http://localhost:8080/recanto-perdido/imagem/${foto}`, {
+        method: 'DELETE',
+    });
+
+    const result = await response.json();
+    alert(result.message);
+}
+
+carregarImagens();
+//abrirGaleria();
