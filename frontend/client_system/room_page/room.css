@@ -55,3 +55,13 @@ section .container{
     flex-direction: column;
     justify-content: center;
 }
+
+#imagem{
+    background-image: linear-gradient(rgba(4, 48, 52, 0.1), rgba(52, 52, 52, 0.7)), url(../../img/logos/quarto-plano-de-fundo.jpg);
+    height: 35vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*utilizar position relative para o texto e refazer a formatação (por conta da adição do carrossel)*/
