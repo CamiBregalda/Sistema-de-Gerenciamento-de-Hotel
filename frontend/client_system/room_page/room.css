@@ -48,8 +48,13 @@ header a{
 
 a,
 h2,
-h3 {
+h3,
+button{
     font-family: 'cinzel';
+}
+
+p{
+    font-family: "Old Standard TT";
 }
 
 button{
@@ -58,10 +63,19 @@ button{
 }
 
 #rooms .container{
+    margin-top: 1vw;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+}
+
+#rooms h2 {
+    text-align: center;
+    color: #236b29;
+    margin-top: 3vw;
+    font-style: italic;
+    font-size: 2rem; 
 }
 
 #imagem{
@@ -116,7 +130,7 @@ button{
     font-size: 2vw;
     width: 3vw;
     height: 3vw;
-    color: white;
+    color: #fff;
     position: absolute;
     background-color: rgba(255, 255, 255, 0.5);
 }
@@ -146,7 +160,7 @@ button{
 }
 
 .texto div{
-    align-items: center;
+    align-items: flex-start ;
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -155,21 +169,22 @@ button{
 }
 
 .texto p{
-    margin-top: 1%;
+    margin-top: 2%;
     margin-left: 1vw;
 }
 
 .texto button{
     position: relative;
-    width: 30%;
+    width: 35%;
     height: 4vh;
     bottom: -5px;
-    border: 1px solid black;
+    left: 35%;
+    border: 1px solid #000;
     background: transparent;
 }
 
 hr{
-    border: 1px solid black;
+    border: 1px solid #5f5f5f;
     width: 90%;
 }
 
@@ -198,3 +213,61 @@ hr{
             </div>
         </div>
 */
+
+footer{
+    background-color: #0d3010;
+    padding: 20px;
+    color: #fff;
+}
+
+footer img{
+    height: 20px;
+}
+
+#contact{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5vw;
+}
+
+footer .metodosContato{
+    flex-direction: column-reverse;
+    display: flex;
+    flex-direction: column;
+    padding-left: 4vw;
+    gap: 2vw;
+}
+
+footer .contato div{
+    margin-top: 1vw;
+}
+
+footer .sugestao{
+    flex-direction: column;
+    gap: 1vw;
+}
+
+form input,
+form textarea{
+    background-color: #59c766;
+    display: block;
+    width: 320px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+::placeholder{
+    color: white;
+    font-family: "Old Standard TT";
+}
+
+form textarea{
+    resize: none;
+    height: 4vw;
+}
+
+footer h3{
+    font-style: italic;
+    color: #4d9d56;
+}
