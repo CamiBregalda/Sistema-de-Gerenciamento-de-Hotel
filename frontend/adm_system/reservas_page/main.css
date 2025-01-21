@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 55vw;
+    margin: 0 auto;
+    padding: 0.5%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#servicos-hotel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reservas {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5%;
+}
+
+.reservas span {
+    flex: 1;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.reservas-btns {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
+}
+
+.reservas button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reservas button.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.reservas button:hover {
+    opacity: 0.9;
+}
+
+.informacoes {
+    width: 100%;
+}
+
+.informacoes-menores {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 1%;
+}
+
+.informacoes-linha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 1%;
+}
+
+.informacoes span {
+    font-size: 15px;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}

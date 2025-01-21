@@ -8,6 +8,7 @@ const path = require('path');
 const loginInfoPath = path.join(__dirname, "../../../frontend/json/credenciais-hotel.json");
 const hotelInfoPath = path.join(__dirname, "../../../frontend/json/hotel-info.json");
 const servicosPath = path.join(__dirname, "../../../frontend/json/servicos-hotel.json");
+const reservasPath = path.join(__dirname, "../../../frontend/json/reservas-hotel.json");
 
 const hotelImagensPath = path.join(__dirname, '../../../frontend/img/hotel/');
 
@@ -132,6 +133,7 @@ export class Routes {
             }
         });
 
+        // Informações de serviços
         app.get('/recanto-perdido/servicos', (req, res) => {
             fs.readFile(servicosPath, 'utf8', (err, data) => {
                 if (err) {
@@ -175,5 +177,45 @@ export class Routes {
                 res.status(404).json({ message: 'Imagem não encontrada.' });
             }
         });
+
+        // Informações de reservas
+        app.get('/recanto-perdido/reservas', (req, res) => {
+            fs.readFile(reservasPath, 'utf8', (err, data) => {
+                if (err) {
+                    return res.status(500).json({ message: 'Erro ao ler o arquivo reservas-hotel.json' });
+                }
+                res.json(JSON.parse(data));
+            });
+        });
+
+        // Informações de quartos
+        app.get('/recanto-perdido/quartos', (req, res) => {
+            fs.readFile(reservasPath, 'utf8', (err, data) => {
+                if (err) {
+                    return res.status(500).json({ message: 'Erro ao ler o arquivo quartos-hotel.json' });
+                }
+                res.json(JSON.parse(data));
+            });
+        });
+
+        app.get('/recanto-perdido/quartos/:id', (req, res) => {
+            const { id } = req.params;
+        
+            fs.readFile(reservasPath, 'utf8', (err, data) => {
+                if (err) {
+                    return res.status(500).json({ message: 'Erro ao ler o arquivo quartos-hotel.json' });
+                }
+        
+                const quartos = JSON.parse(data); 
+                const quarto = quartos.find(quarto => quarto.id === id.toString()); 
+        
+                if (!quarto) {
+                    return res.status(404).json({ message: 'Quarto não encontrado' }); 
+                }
+        
+                res.json(quarto); 
+            });
+        });
+        
     }   
 }
