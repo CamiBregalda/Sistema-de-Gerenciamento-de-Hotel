@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 20vw;
+    margin: 0 auto;
+    padding: 0.5%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-hotel{
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 2%;
+}
+
+.campos-input {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.campos-input label {
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5%;
+}
+
+form .campos-input input,
+form .campos-input textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form .campos-input textarea {
+    height: 8vw;
+    resize: vertical;
+}
+
+.login-btn {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    margin-top: 10%;
+    padding: 4% 7%;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

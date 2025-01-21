@@ -5,6 +5,10 @@
     overflow-x: hidden;
 }
 
+body {
+    background-color: #f5f5f5;
+}
+
 .container {
     max-width: 55vw;
     margin: 0 auto;
@@ -14,6 +18,12 @@
 h2 {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.att-info-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
 }
 
 .informacoes-hotel, .enderecos-hotel {
