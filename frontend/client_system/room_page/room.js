@@ -28,7 +28,7 @@ function criarDescricao(quarto) {
             <div>
                 <p>${quarto.descricao}</p>
                 <p> <b>preço: </b>R$ ${quarto.precoPorNoite},00</p>
-                <button> comprar </button>
+                <button onclick = "carregarDetalhes('${quarto.id}')"> ver mais </button>
             </div>
         </div>
     `
