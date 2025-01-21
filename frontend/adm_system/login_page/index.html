@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento Recanto Perdido</title>
+    <link rel="stylesheet" href="main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cormorant+Garamond&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <section>
+        <div class="container">
+            <div class="login-hotel">
+                <h2> Realizar Login </h2>
+
+                <form action="javascript:void(0)" method="POST">
+                    <div class="campos-input">
+                        <label for="usuario">Usuário:</label>
+                        <input type="text" id="usuario" name="usuario">
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha">
+                    </div>
+                </form>
+
+                <div class="login-btn">
+                    <button id="logar-sistema" type="submit" onclick='logarSistema()'>Logar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>

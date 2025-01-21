@@ -1,8 +1,11 @@
+import { console } from "inspector";
+
 const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 
+const loginInfoPath = path.join(__dirname, "../../../frontend/json/credenciais-hotel.json");
 const hotelInfoPath = path.join(__dirname, "../../../frontend/json/hotel-info.json");
 const servicosPath = path.join(__dirname, "../../../frontend/json/servicos-hotel.json");
 
@@ -47,6 +50,35 @@ const uploadServicos = multer({ storage: storageServicos });
 
 export class Routes {
     routes(app: any) {
+        //Informações para login
+        app.post('/recanto-perdido/login', async (req, res) => {
+            try {
+                const loginUser = req.body;
+
+                fs.readFile(loginInfoPath, 'utf8', (err, data) => {
+                    if (err) {
+                        return res.status(500).json({ message: 'Erro ao ler o arquivo login-hotel.json.' });
+                    }
+
+                    const credenciais = JSON.parse(data);
+
+                    const usuarioEncontrado = credenciais.find(credencial =>
+                        credencial.usuario === loginUser.usuario && credencial.senha === loginUser.senha
+                    );
+    
+                    if (usuarioEncontrado) {
+                        res.status(200).json({ message: 'Login realizado com sucesso!' });
+                    } else {
+                        res.status(401).json({ message: 'Usuário ou senha inválidos.' });
+                    }
+                });
+            } catch (error) {
+                console.error('Erro ao processar login:', error);
+                res.status(500).json({ message: 'Erro no servidor ao tentar realizar o login.' });
+            }
+        });
+
+        //Informações do hotel
         app.get('/recanto-perdido', (req, res) => {
             fs.readFile(hotelInfoPath, 'utf8', (err, data) => {
                 if (err) {
