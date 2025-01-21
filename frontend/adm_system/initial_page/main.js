@@ -20,6 +20,8 @@ async function carregarHotelInfo() {
     document.getElementById('estado').placeholder = hotelInfo.endereco.estado || 'Digite o estado onde está localizado o hotel';
     document.getElementById('codigoPostal').placeholder = hotelInfo.endereco.codigoPostal || 'Digite o código postal onde está localizado o hotel';
     document.getElementById('pais').placeholder = hotelInfo.endereco.pais || 'Digite o país onde está localizado o hotel';
+
+    carregarImagens(hotelInfo.imagens);
 }
 
 async function carregarServicos() {
@@ -41,6 +43,46 @@ async function carregarServicos() {
         `;
         listaServicos.appendChild(servicoDiv);
     });
+}
+
+async function carregarImagens(imagens) {
+    const imagensHotelDiv = document.getElementById('imagens-hotel');
+
+    try {
+        for (const imagem of imagens) {
+            const response = await fetch(`http://localhost:8080/recanto-perdido/imagem/${imagem}`);
+
+            if (response.ok) {
+                // Obtém os dados da imagem como um blob
+                const blob = await response.blob(); 
+                // Cria uma URL temporária para exibir a imagem
+                const imageURL = URL.createObjectURL(blob); 
+
+                const novaImagem = document.createElement('div');
+                novaImagem.classList.add('imagens');
+
+                const imgElement = document.createElement('img');
+                imgElement.src = imageURL;
+                imgElement.alt = `Imagem do hotel ${imagem}`;
+
+                console.log(imagem);
+
+                // Criando o botão de exclusão
+                const deleteButton = document.createElement('button');
+                deleteButton.innerHTML = 'X';
+                deleteButton.classList.add('delete-imagens-btn');
+                deleteButton.onclick = () => excluirImagemHotel(imagem);
+
+                novaImagem.appendChild(deleteButton);
+                novaImagem.appendChild(imgElement);
+                imagensHotelDiv.appendChild(novaImagem);
+            } else {
+                console.error(`Erro ao carregar a imagem ${imagem}: ${response.statusText}`);
+            }
+        }
+    } catch (error) {
+        console.error('Erro ao carregar imagens:', error);
+    }
 }
 
 /*
@@ -106,9 +148,10 @@ async function salvarAtualizacoes(event) {
 //window.onload = carregarHotelInfo;
 
 // Adicionar evento de submit ao formulário
-document.getElementById('update-hotel-info').addEventListener('submit', salvarAtualizacoes);
-//document.getElementById('enderecoForm').addEventListener('submit', salvarAtualizacoes);
+document.getElementById('atualizar-hotel-info').addEventListener('submit', salvarAtualizacoes);
+//document.getElementById('atualizar-hotel-endereco').addEventListener('submit', salvarAtualizacoes);
 */
+
 function mostrarModal(acao, id) {
     document.getElementById('modal').classList.add('active');
 
@@ -237,56 +280,24 @@ async function excluirImagemServico(foto) {
     alert(result.message);
 }
 
+// Função para adicionar uma imagem a hotel
+//document.getElementById('add-imagens').addEventListener('click', async function(event) {
+async function salvarImagemHotel() {
+    const fileInput = document.getElementById('nova-foto');
+    const file = fileInput.files[0];
 
-carregarHotelInfo();
-carregarServicos();
-/*
-// Abrir a galeria
-function abrirGaleria() {
-    document.getElementById('imageGallery').style.display = 'flex';
-    carregarImagens();
-}
+    console.log(file);
 
-// Fechar a galeria
-function fecharGaleria() {
-    document.getElementById('imageGallery').style.display = 'none';
-}
+    if (!file) {
+        alert('Por favor, selecione uma imagem!');
+    };
 
-async function carregarImagens() {
-    const response = await fetch('http://localhost:8080/recanto-perdido');
-    const hotel = await response.json();
-
-    hotelImages = hotel.imagens;
-    console.log(hotelImages);
-
-    const container = document.getElementById('imageContainer');
-    container.innerHTML = ''; // Limpa o container antes de carregar novas imagens
-
-    hotelImages.forEach((image, index) => {
-        const div = document.createElement('div');
-        div.classList.add('image-item');
-
-        const img = document.createElement('img');
-        img.src = `http://localhost:8080/recanto-perdido/imagem/${image}`;
-        img.alt = `Imagem ${index + 1}`;
-
-        const deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete-button');
-        deleteButton.innerText = 'X';
-        deleteButton.onclick = () => excluirImagemHotel(image);
-
-        div.appendChild(img);
-        div.appendChild(deleteButton);
-        container.appendChild(div);
-    });
-}*/
-
-async function salvarImagemHotel(event) {
-    const file = event.target.files[0];
     const formData = new FormData();
     formData.append('fotoHotel', file);
 
     hotelInfo.imagens.push(file.name);
+
+    // Chamar função de atualizar info do hotel
 
     const response = await fetch('http://localhost:8080/recanto-perdido/imagem', {
         method: 'POST',
@@ -294,13 +305,15 @@ async function salvarImagemHotel(event) {
     });
 
     const result = await response.json();
-    alert(result.message); 
-}
+    alert(result.message);
+};
 
-async function excluirImagemHotel(foto) {
-    hotelImages = hotelInfo.imagens.filter((img) => img !== imageName);    
+async function excluirImagemHotel(imagem) {
+    hotelImages = hotelInfo.imagens.filter((img) => img !== imagem);    
 
-    const response = await fetch(`http://localhost:8080/recanto-perdido/imagem/${foto}`, {
+    // Chamar função de atualizar info do hotel
+
+    const response = await fetch(`http://localhost:8080/recanto-perdido/imagem/${imagem}`, {
         method: 'DELETE',
     });
 
@@ -308,5 +321,5 @@ async function excluirImagemHotel(foto) {
     alert(result.message);
 }
 
-carregarImagens();
-//abrirGaleria();
+carregarHotelInfo();
+carregarServicos();
