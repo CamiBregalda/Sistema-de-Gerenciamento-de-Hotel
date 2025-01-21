@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
 }
 
 .container{
@@ -47,11 +46,20 @@ header a{
     font-weight: lighter;
 }
 
-a {
+a,
+h2,
+h3 {
     font-family: 'cinzel';
 }
 
-section .container{
+button{
+    cursor: pointer;
+    border: none;
+}
+
+#rooms .container{
+    display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
 }
@@ -64,39 +72,105 @@ section .container{
     background-size: cover;
 }
 
-.quarto{
+.quartoArvore,
+.quartoSolo{
     display: flex;
     flex-wrap: wrap;
-    width: 30vw;
-    height: 40vw;
+}
+
+.quarto{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1vw;
+    width: 31vw;
+    height: 35vw;
 }
 
 .carrossel{
-    align-items: center;
-    margin: auto;
-    object-fit: cover;
     position: relative;
+    display: flex;
+    width: 100% ;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
 }
 
 .foto {
+    align-items: center;
     display: flex;
-    transition: transform 0.3s ease;
     overflow: hidden;
 }
 
 .foto img{
-    width: 100%;
-    height: 100%;
+    width: 30vw;
+    height: 25vw;
     flex-shrink: 0;
     object-fit: cover;
     object-position: center;
 }
 
-button .next,
-button .prev{
+.prev,
+.next{
+    font-size: 2vw;
+    width: 3vw;
+    height: 3vw;
+    color: white;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.next{
+    right: 0;
+}
+
+.prev{
+    left: 0;
+}
+
+.texto h3{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.texto{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #defbda;
+    width: 90%;
+    height: 30%;
+    bottom: 8px;
+}
+
+.texto div{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 40vw;
+    overflow-y: auto;
+}
+
+.texto p{
+    margin-top: 1%;
+    margin-left: 1vw;
+}
+
+.texto button{
+    position: relative;
+    width: 30%;
+    height: 4vh;
+    bottom: -5px;
+    border: 1px solid black;
+    background: transparent;
+}
+
+hr{
+    border: 1px solid black;
+    width: 90%;
 }
 
 /*utilizar position relative para o texto e refazer a formatação (por conta da adição do carrossel)*/
