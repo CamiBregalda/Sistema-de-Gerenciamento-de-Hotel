@@ -20,7 +20,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-#servicos-hotel {
+#reservas-hotel {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -33,7 +33,6 @@ h2 {
     padding: 15px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 1.5%;
 }
@@ -44,12 +43,10 @@ h2 {
     white-space: normal;
 }
 
-.reservas-btns {
+.reservas-btn {
     display: flex;
     gap: 10px;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     border-radius: 10%;
 }
 
@@ -82,7 +79,7 @@ h2 {
 
 .informacoes-linha {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     margin: 1%;
 }
@@ -92,5 +89,37 @@ h2 {
     color: #333;
     padding: 5px 10px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+}
+
+@media (max-width: 1300px) {
+    .informacoes-linha {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 1%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        max-width: 80vw;
+        margin: 0 auto;
+        padding: 0.5%;
+    }
+}
+
+@media (max-width: 600px) {
+    .informacoes-menores {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin: 1%;
+    }
+    
+    .informacoes-linha {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin: 1%;
+    }
 }
