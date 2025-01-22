@@ -1,6 +1,6 @@
 async function carregarReservas() {
     const response = await fetch('http://localhost:8080/recanto-perdido/reservas');
-    reservas = await response.json();
+    const reservas = await response.json();
 
     const listaReservas = document.getElementById('reservas-hotel');
     listaReservas.innerHTML = '';
@@ -23,7 +23,7 @@ async function carregarReservas() {
                 <span><strong>Endereço de email: </strong>${reserva.email}</span>
             </div>
         </div>
-        <div class="reservas-btns">
+        <div class="reservas-btn">
             <button class="delete-btn" onclick="deleteServico(${reserva.id})">X</button>
         </div>
         `;

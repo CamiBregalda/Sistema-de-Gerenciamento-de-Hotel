@@ -30,41 +30,16 @@ function criarDescricao(quarto) {
             <div>
                 <p>${quarto.descricao}</p>
                 <p> <b>preço: </b>R$ ${quarto.precoPorNoite},00</p>
-                <button onclick = "buscarQuartoPorId('${quarto.id}')"> ver mais </button>
+                <button onclick = "redirecionarPaginaPeloIdQuarto('${quarto.id}')"> ver mais </button>
             </div>
         </div>
     `
 }
 
-async function buscarQuartoPorId(id){
-    
-    try{
-        const response = await fetch(`http://localhost:8080/recanto-perdido/quartos/${id}`);
-        
-        const quarto = await response.json();
-
-        const detalhesHTML = `
-            <div class = "texto">
-                <h3>${quarto.nome}</h3>
-                <hr/>
-                <div>
-                    <p>${quarto.descricao}</p>
-                    <p> <b>preço: </b>R$ ${quarto.precoPorNoite},00</p>
-                </div>
-            </div>
-        `;
-            console.log(quarto);
-
-            detalhesContainer.innerHTML += detalhesHTML;
-
-        // window.location.href = '../book_page/book-details.html';
-
-    } catch (error){
-        console.error(error);
-        detalhesContainer.innerHTML = `<p>Erro ao carregar a página</p>`;
-    }
-    
-    
+async function redirecionarPaginaPeloIdQuarto(id) {
+    const urlParams = new URLSearchParams();
+    urlParams.append('id', id);
+    window.location.href = `../book_page/book-details.html?${urlParams.toString()}`;
 }
 
 //classeQuartoContainer será o DOM dos dois tipos de quarto que serão inseridos
@@ -91,7 +66,7 @@ async function carregarQuartos(classeQuartoContainer, filtro) {
                     ${criarDescricao(quarto)}
                 </div>
             `;
-           
+
             classeQuartoContainer.innerHTML += quartoHTML;
         })
 
