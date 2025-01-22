@@ -1,6 +1,7 @@
 [
     {
         "id": "1",
+        "nome": "Sonho Verde",
         "descricao": "Suíte Amazônica Deluxe com varanda privativa, vista panorâmica da floresta e banheira de hidromassagem.",
         "precoPorNoite": 2100.0,
         "subterraneo": false,
@@ -11,6 +12,7 @@
     },
     {
         "id": "2",
+        "nome": "Rumo as estrelas",
         "descricao": "Suíte Master Tribo com design inspirado em culturas amazônicas, jacuzzi e espaço para meditação.",
         "precoPorNoite": 1750.0,
         "subterraneo": false,
@@ -21,6 +23,7 @@
     },
     {
         "id": "3",
+        "nome": "Ninho da águia",
         "descricao": "Quarto Standard com decoração temática, cama king-size e ar-condicionado ecológico.",
         "precoPorNoite": 1000.0,
         "subterraneo": false,
@@ -31,6 +34,7 @@
     },
     {
         "id": "4",
+        "nome": "Floresta encantada",
         "descricao": "Quarto subsolo com cachoeira particular, cama de casal e poções de conhecimento, tradicionais de ratanabá.",
         "precoPorNoite": 3000.0,
         "subterraneo": true,
@@ -41,6 +45,7 @@
     },
     {
         "id": "5",
+        "nome": "Raízes ancestrais",
         "descricao": "Quarto tradicional do povo Muril, iluminação a partir de pedras brilhantes e quarto favorito do E.T Bilu",
         "precoPorNoite": 1800.0,
         "subterraneo": true,

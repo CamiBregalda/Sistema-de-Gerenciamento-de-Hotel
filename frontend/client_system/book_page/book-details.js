@@ -1,32 +1,20 @@
 const detalheJson = '../../json/quartos-hotel.json';
 
-
-const detalhesContainer = document.querySelector('.detalhes');
-
-async function carregarDetalhes(quartoId){
+export async function carregarDetalhes(quartoId){
     try{
-        const response = await fetch(detalheJson);
+        const response = await fetch(`http://localhost:8080/recanto-perdido/quartos`);
+
         if (!response.ok) {
-            throw new Error(`Erro ao carregar o arquivo JSON: ${response.statusText}`);
+            throw new Error(`Erro ao buscar dados de quartos: ${response.statusText}`);
         }
+
         const quartos = await response.json();
 
-       /* console.log(quartos);
-
         //tentativa, não sei se vai funcionar
-        let quarto = null;
-        //vou usar for of,, basicamente a constante recebe o valoa atual do primeiro elemento da array atual e o of passa a array que será percorrida
-        for(const q of quartos){
-            if(q.id === quartoId){
-                quarto = q;
-                break;
-            }
-        }
 
         if(!quarto){
             throw new Error(`Quarto não encontrado`);
         }
-
 
         detalhesContainer.innerHTML=`
             <div class = "texto">
@@ -44,11 +32,10 @@ async function carregarDetalhes(quartoId){
             descricoes.style.display = 'block';
         } else{
             console.error("Elemento #descricoes não encontrado no DOM");
-        }*/ 
+        }
 
     
-    } 
-    catch (error) {
+    } catch (error) {
         console.error(error);
         classeQuartoContainer.innerHTML = `<p>Erro ao carregar os detalhes. Tente novamente mais tarde.</p>`;
     }
@@ -64,3 +51,4 @@ async function carregarDetalhes(quartoId){
         })
     }
 }
+
