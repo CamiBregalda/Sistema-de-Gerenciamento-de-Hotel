@@ -9,6 +9,7 @@ const loginInfoPath = path.join(__dirname, "../../../frontend/json/credenciais-h
 const hotelInfoPath = path.join(__dirname, "../../../frontend/json/hotel-info.json");
 const servicosPath = path.join(__dirname, "../../../frontend/json/servicos-hotel.json");
 const reservasPath = path.join(__dirname, "../../../frontend/json/reservas-hotel.json");
+const quartosPath = path.join(__dirname, "../../../frontend/json/quartos-hotel.json");
 
 const hotelImagensPath = path.join(__dirname, '../../../frontend/img/hotel/');
 
@@ -201,7 +202,7 @@ export class Routes {
         app.get('/recanto-perdido/quartos/:id', (req, res) => {
             const { id } = req.params;
         
-            fs.readFile(reservasPath, 'utf8', (err, data) => {
+            fs.readFile(quartosPath, 'utf8', (err, data) => {
                 if (err) {
                     return res.status(500).json({ message: 'Erro ao ler o arquivo quartos-hotel.json' });
                 }

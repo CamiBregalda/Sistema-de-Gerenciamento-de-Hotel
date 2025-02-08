@@ -12,5 +12,11 @@ async function logarSistema() {
     });
 
     const result = await response.json();
-    alert(result.message); 
+
+    if (result.message === 'Login realizado com sucesso!') { 
+        alert(result.message);
+        window.location.href = '../initial_page/index.html';
+    } else {
+        alert(result.message);
+    }
 }

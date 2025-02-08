@@ -191,7 +191,7 @@ function addServico() {
             id: (ultimoId + 1).toString(), 
             nome: novoNome,
             descricao: novaDescricao,
-            foto: arquivo.name
+            imagem: arquivo.name
         };
 
         servicos.push(novoServico);
@@ -219,12 +219,12 @@ function updateServico(id) {
     }
 
     if (novaDescricao) {
-        servico.nome = novaDescricao;
+        servico.descricao = novaDescricao;
     }
 
     if (arquivo) {
-        excluirImagemServico(servico.foto);
-        servico.foto = arquivo.name;
+        excluirImagemServico(servico.imagem);
+        servico.imagem = arquivo.name;
         salvarImagemServico(arquivo);
     }
     
@@ -240,7 +240,7 @@ function deleteServico(id) {
     if (confirm('Tem certeza de que deseja excluir este serviço?')) {
         servicos = servicos.filter((s) => s.id !== id.toString());
         salvarServicos();
-        excluirImagemServico(servico.foto);
+        excluirImagemServico(servico);
         carregarServicos();
     }
 }
@@ -270,9 +270,9 @@ async function salvarImagemServico(arquivo) {
     alert(result.message); 
 }
 
-async function excluirImagemServico(foto) {
-    console.log(foto);
-    const response = await fetch(`http://localhost:8080/recanto-perdido/servicos/imagem/${foto}`, {
+async function excluirImagemServico(servico) {
+    //Se mais nenhum serviço utilizar essa imagem
+    const response = await fetch(`http://localhost:8080/recanto-perdido/servicos/imagem/${servico.imagem}`, {
         method: 'DELETE',
     });
 
