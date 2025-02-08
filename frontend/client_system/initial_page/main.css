@@ -156,6 +156,7 @@ button{
 .atracoes img{
     border-radius: 40px;
     width: 100%;
+    max-width: 35vw;
     height: 20vw;
     object-fit: cover;
 }
