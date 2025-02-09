@@ -65,8 +65,6 @@ async function carregarImagens(imagens) {
                 imgElement.src = imageURL;
                 imgElement.alt = `Imagem do hotel ${imagem}`;
 
-                console.log(imagem);
-
                 // Criando o botão de exclusão
                 const deleteButton = document.createElement('button');
                 deleteButton.innerHTML = 'X';
@@ -85,72 +83,58 @@ async function carregarImagens(imagens) {
     }
 }
 
-/*
-// Função para salvar os dados do formulário
-async function salvarAtualizacoes(event) {
-    event.preventDefault(); // Evitar envio do formulário padrão
+async function salvarAtualizacoesHotel(event) {
+    event.preventDefault();
 
-    // Obter os dados preenchidos no formulário
-    const updatedHotelInfo = {};
+    const nome = document.getElementById('nome').value.trim();
+    const descricao = document.getElementById('descricao').value.trim();
+    const telefone = document.getElementById('telefone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const website = document.getElementById('website').value.trim();
 
-    // Coletar dados de hotel
-    const nome = document.getElementById('nome').value || undefined;
-    if (nome) updatedHotelInfo.nome = nome;
+    if (nome) hotelInfo.nome = nome;
+    if (descricao) hotelInfo.descricao = descricao;
+    if (telefone) hotelInfo.contatos.telefone = telefone;
+    if (email) hotelInfo.contatos.email = email;
+    if (website) hotelInfo.contatos.website = website;
 
-    const endereco = {};
-    const rua = document.getElementById('rua').value || undefined;
-    if (rua) endereco.rua = rua;
+    atualizarHotel(hotelInfo);
+    carregarHotelInfo();
+}
 
-    const numero = document.getElementById('numero').value || undefined;
-    if (numero) endereco.numero = numero;
+async function salvarAtualizacoesEndereco(event) {
+    event.preventDefault();
 
-    const bairro = document.getElementById('bairro').value || undefined;
-    if (bairro) endereco.bairro = bairro;
+    const rua = document.getElementById('rua').value.trim();
+    const numero = document.getElementById('numero').value.trim();
+    const bairro = document.getElementById('bairro').value.trim();
+    const cidade = document.getElementById('cidade').value.trim();
+    const estado = document.getElementById('estado').value.trim();
+    const pais = document.getElementById('pais').value.trim();
+    const codigoPostal = document.getElementById('codigoPostal').value.trim();
 
-    const cidade = document.getElementById('cidade').value || undefined;
-    if (cidade) endereco.cidade = cidade;
+    if (rua) hotelInfo.endereco.rua = rua;
+    if (numero) hotelInfo.endereco.numero = numero;
+    if (bairro) hotelInfo.endereco.bairro = bairro;
+    if (cidade) hotelInfo.endereco.cidade = cidade;
+    if (estado) hotelInfo.endereco.estado = estado;
+    if (pais) hotelInfo.endereco.pais = pais;
+    if (codigoPostal) hotelInfo.endereco.codigoPostal = codigoPostal;
 
-    const estado = document.getElementById('estado').value || undefined;
-    if (estado) endereco.estado = estado;
+    atualizarHotel(hotelInfo);
+    carregarHotelInfo();
+}
 
-    const codigoPostal = document.getElementById('codigoPostal').value || undefined;
-    if (codigoPostal) endereco.codigoPostal = codigoPostal;
-
-    const pais = document.getElementById('pais').value || undefined;
-    if (pais) endereco.pais = pais;
-
-    if (Object.keys(endereco).length > 0) {
-        updatedHotelInfo.endereco = endereco;
-    }
-
-    // Coletar outros dados do hotel
-    const telefone = document.getElementById('telefone').value || undefined;
-    if (telefone) updatedHotelInfo.telefone = telefone;
-
-    const email = document.getElementById('email').value || undefined;
-    if (email) updatedHotelInfo.email = email;
-
-    const descricao = document.getElementById('descricao').value || undefined;
-    if (descricao) updatedHotelInfo.descricao = descricao;
-
-    // Enviar os dados para o servidor
-    const response = await fetch('http://localhost:8080/recanto-perdido', {
+async function atualizarHotel(hotelInfo) {
+    const response = await fetch(`http://localhost:8080/recanto-perdido`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updatedHotelInfo),
+        body: JSON.stringify(hotelInfo)
     });
 
     const result = await response.json();
-    alert(result.message); // Exibe a resposta do servidor
+    alert(result.message);
 }
-
-// Carregar informações ao abrir a página
-//window.onload = carregarHotelInfo;
-
-// Adicionar evento de submit ao formulário
-document.getElementById('atualizar-hotel-info').addEventListener('submit', salvarAtualizacoes);
-//document.getElementById('atualizar-hotel-endereco').addEventListener('submit', salvarAtualizacoes);
-*/
 
 function mostrarModal(acao, id) {
     document.getElementById('modal').classList.add('active');
@@ -207,7 +191,6 @@ function addServico() {
 
 // Função para editar um serviço
 function updateServico(id) {
-    console.log(id);
     const novoNome = document.getElementById('nomeServico').value;
     const novaDescricao = document.getElementById('descricaoServico').value;
     const arquivo = document.getElementById('fotoServico').files[0];
@@ -280,13 +263,17 @@ async function excluirImagemServico(servico) {
     alert(result.message);
 }
 
-// Função para adicionar uma imagem a hotel
-//document.getElementById('add-imagens').addEventListener('click', async function(event) {
+async function atualizarImagensHotel() {
+    await fetch(`http://localhost:8080/recanto-perdido`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(hotelInfo)
+    });
+}
+
 async function salvarImagemHotel() {
     const fileInput = document.getElementById('nova-foto');
     const file = fileInput.files[0];
-
-    console.log(file);
 
     if (!file) {
         alert('Por favor, selecione uma imagem!');
@@ -297,7 +284,7 @@ async function salvarImagemHotel() {
 
     hotelInfo.imagens.push(file.name);
 
-    // Chamar função de atualizar info do hotel
+    atualizarImagensHotel();
 
     const response = await fetch('http://localhost:8080/recanto-perdido/imagem', {
         method: 'POST',
@@ -309,9 +296,9 @@ async function salvarImagemHotel() {
 };
 
 async function excluirImagemHotel(imagem) {
-    hotelImages = hotelInfo.imagens.filter((img) => img !== imagem);    
+    hotelInfo.imagens = hotelInfo.imagens.filter((img) => img !== imagem);    
 
-    // Chamar função de atualizar info do hotel
+    atualizarImagensHotel();
 
     const response = await fetch(`http://localhost:8080/recanto-perdido/imagem/${imagem}`, {
         method: 'DELETE',
@@ -323,3 +310,11 @@ async function excluirImagemHotel(imagem) {
 
 carregarHotelInfo();
 carregarServicos();
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("atualizar-hotel-info").addEventListener("click", salvarAtualizacoesHotel);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("atualizar-hotel-endereco").addEventListener("click", salvarAtualizacoesEndereco);
+});
