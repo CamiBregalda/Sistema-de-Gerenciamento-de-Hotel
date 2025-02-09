@@ -1,11 +1,6 @@
-
-//caminho para arquivo JSON
-const quartosJson = "../../json/quartos-hotel.json";
-
 const quartoArvoreClasse = document.querySelector('.quartoArvore');
 const quartoSoloClasse = document.querySelector('.quartoSolo');
 const detalhesContainer = document.querySelector('.detalhes-quarto');
-
 
 function criarCarrossel(imagens) {
     //map juntamente ao join está transformando o array das imagens, em uma string com várias img
@@ -46,8 +41,8 @@ async function redirecionarPaginaPeloIdQuarto(id) {
 //filtro define quais quartos poderão ou não ser exibidos
 async function carregarQuartos(classeQuartoContainer, filtro) {
     try {
-        // Carregando os dados do arquivo JSON
-        const response = await fetch(quartosJson);
+        // Carregando os dados de quartos
+        const response = await fetch(`http://localhost:8080/recanto-perdido/quartos`);
 
         // Verificando se o arquivo foi encontrado
         if (!response.ok) {

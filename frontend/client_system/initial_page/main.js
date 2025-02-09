@@ -1,8 +1,3 @@
-// Caminho para o arquivo JSON
-const pacotesJson = "../../json/pacotes-hotel.json";
-const servicosJson = "../../json/servicos-hotel.json";
-const hotelJson = "../../json/hotel-info.json";
-
 const pacotesClasse = document.querySelector('.pacotes');
 const atracoesClasse = document.querySelector('.atracoes');
 const contatoClasse = document.querySelector('.metodosContato');
@@ -10,13 +5,8 @@ const contatoClasse = document.querySelector('.metodosContato');
 // Função para carregar e renderizar os pacotes
 async function carregarPacotes() {
     try {
-        // Carregando os dados do arquivo JSON
-        const response = await fetch(pacotesJson);
-
-        // Verificando se o arquivo foi encontrado
-        if (!response.ok) {
-            throw new Error(`Erro ao carregar o arquivo JSON: ${response.statusText}`);
-        }
+        // Carregando os dados de pacotes
+        const response = await fetch(`http://localhost:8080/recanto-perdido/pacotes`);
 
         // Convertendo os dados para JSON
         const pacotes = await response.json();
@@ -51,14 +41,9 @@ function comprarPacote(id) {
 
 async function carregarServicos() {
     try {
-        // Carregando os dados do arquivo JSON
-        const response = await fetch(servicosJson);
-
-        // Verificando se o arquivo foi encontrado
-        if (!response.ok) {
-            throw new Error(`Erro ao carregar o arquivo JSON: ${response.statusText}`);
-        }
-
+        // Carregando os dados de serviços
+        const response = await fetch(`http://localhost:8080/recanto-perdido/servicos`);
+        
         // Convertendo os dados para JSON
         const servicos = await response.json();
 
@@ -90,13 +75,8 @@ function comprarServico(id) {
 
 async function carregarContatos() {
     try {
-        // Carregando os dados do arquivo JSON
-        const response = await fetch(hotelJson);
-
-        // Verificando se o arquivo foi encontrado
-        if (!response.ok) {
-            throw new Error(`Erro ao carregar o arquivo JSON: ${response.statusText}`);
-        }
+        // Carregando os dados do hotel
+        const response = await fetch(`http://localhost:8080/recanto-perdido`);
 
         // Convertendo os dados para JSON
         const hotel = await response.json();
