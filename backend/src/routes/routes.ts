@@ -12,6 +12,7 @@ const reservasPath = path.join(__dirname, "../../../frontend/json/reservas-hotel
 const quartosPath = path.join(__dirname, "../../../frontend/json/quartos-hotel.json");
 
 const hotelImagensPath = path.join(__dirname, '../../../frontend/img/hotel/');
+const quartosImagensPath = path.join(__dirname, '../../../frontend/img/quartos/');
 
 // Função para verificar e criar a pasta caso não exista
 const ensureDirectoryExistence = (filePath) => {
@@ -49,6 +50,20 @@ const storageServicos = multer.diskStorage({
 });
 
 const uploadServicos = multer({ storage: storageServicos });
+
+// Configuração do multer para armazenar a imagem na pasta quartos
+const storageQuartos = multer.diskStorage({
+    destination: function (req, file, cb) {
+        const pasta = path.join(__dirname, '../../../frontend/img/quartos');
+        ensureDirectoryExistence(pasta); 
+        cb(null, pasta); 
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+const uploadQuartos = multer({ storage: storageQuartos });
 
 export class Routes {
     routes(app: any) {
@@ -190,8 +205,44 @@ export class Routes {
         });
 
         // Informações de quartos
+        app.post('/recanto-perdido/quartos/:id', (req, res) => {
+            const { id } = req.params;
+            const updatedQuarto = req.body;
+
+            fs.readFile(quartosPath, 'utf8', (err, data) => {
+                if (err) {
+                    return res.status(500).json({ message: 'Erro ao ler o arquivo quartos-hotel.json' });
+                }
+        
+                let quartos;
+                try {
+                    quartos = JSON.parse(data);
+                } catch (error) {
+                    return res.status(500).json({ message: 'Erro ao processar os dados do JSON' });
+                }
+        
+                console.log(quartos);
+
+                const quartoIndex = quartos.findIndex(quarto => quarto.id === id.toString());
+        
+                if (quartoIndex === -1) {
+                    return res.status(404).json({ message: 'Quarto não encontrado' });
+                }
+        
+                quartos[quartoIndex] = { ...quartos[quartoIndex], ...updatedQuarto };
+        
+                fs.writeFile(quartosPath, JSON.stringify(quartos, null, 2), 'utf8', (writeErr) => {
+                    if (writeErr) {
+                        return res.status(500).json({ message: 'Erro ao salvar o arquivo quartos-hotel.json' });
+                    }
+        
+                    res.status(200).json({ message: 'Quarto atualizado com sucesso', quarto: quartos[quartoIndex] });
+                });
+            });
+        });
+
         app.get('/recanto-perdido/quartos', (req, res) => {
-            fs.readFile(reservasPath, 'utf8', (err, data) => {
+            fs.readFile(quartosPath, 'utf8', (err, data) => {
                 if (err) {
                     return res.status(500).json({ message: 'Erro ao ler o arquivo quartos-hotel.json' });
                 }
@@ -217,6 +268,38 @@ export class Routes {
                 res.json(quarto); 
             });
         });
+
+        app.get('/recanto-perdido/quartos/imagem/:imageName', (req, res) => {
+            const { imageName } = req.params;
+            const filePath = path.join(quartosImagensPath, imageName);
         
+            if (fs.existsSync(filePath)) {
+                res.sendFile(filePath);
+            } else {
+                res.status(404).json({ message: 'Imagem não encontrada.' });
+            }
+        });
+
+        app.post('/recanto-perdido/quartos/imagem/:id', uploadQuartos.single('imagem'), (req, res) => {
+            const imagem = req.file;
+            res.json({ message: `Imagem ${imagem.filename} salva com sucesso!` });
+        });
+
+        app.delete('/recanto-perdido/quartos/imagem/:imagem', (req, res) => {
+            const { imagem } = req.params;
+            const filePath = path.join(quartosImagensPath, imagem);
+
+            if (fs.existsSync(filePath)) {
+                fs.unlink(filePath, (err) => {
+                    if (err) {
+                        console.error('Erro ao excluir a imagem:', err);
+                        return res.status(500).json({ message: 'Erro ao excluir a imagem.' });
+                    }
+                    res.status(200).json({ message: 'Imagem excluída com sucesso!' });
+                });
+            } else {
+                res.status(404).json({ message: 'Imagem não encontrada.' });
+            }
+        });
     }   
 }

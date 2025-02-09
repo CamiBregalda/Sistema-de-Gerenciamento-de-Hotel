@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento Recanto Perdido</title>
+    <link rel="stylesheet" href="main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cormorant+Garamond&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section> 
+        <h2>Informações do Quarto</h2>
+        
+        <div id="info-quarto">
+            <form action="javascript:void(0)" method="POST">
+                <div id="form-quarto">
+                    <div class="campos">
+                        <div class="campos-text">
+                            <div class="campos-input">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nome" name="nome">
+                            </div>
+                            <div class="campos-input">
+                                <label for="preco">Preço por noite: </label>
+                                <input type="text" id="preco" name="preco">
+                            </div>
+                            <div class="campos-input">
+                                <label for="subterraneo">Subterrâneo:</label>
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input type="radio" name="subterraneo" value="sim"> Sim
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="subterraneo" value="nao" checked> Não
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="campos-text">
+                            <div class="campos-input">
+                                <label for="descricao">Descrição:</label>
+                                <textarea id="descricao" name="descricao"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="att-info-btn">
+                    <button id="atualizar-quarto" type="submit">Atualizar Quarto</button>
+                </div>            
+            </form>
+        </div>
+    </section>
+
+    <section>
+        <div class="container-imagens">
+            <h2>Imagens do Quarto</h2>
+
+            <div id="imagens-quartos">
+                <!-- As imagens do quarto serão listados aqui dinamicamente -->
+            </div>
+
+            <input type="file" id="nova-foto" />
+            <button id="add-imagens" class="add-imagens-btn" type="button" onclick='salvarImagemQuarto()'>Adicionar Imagem</button>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>
