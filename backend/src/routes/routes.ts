@@ -10,6 +10,7 @@ const hotelInfoPath = path.join(__dirname, "../../../frontend/json/hotel-info.js
 const servicosPath = path.join(__dirname, "../../../frontend/json/servicos-hotel.json");
 const reservasPath = path.join(__dirname, "../../../frontend/json/reservas-hotel.json");
 const quartosPath = path.join(__dirname, "../../../frontend/json/quartos-hotel.json");
+const pacotesPath = path.join(__dirname, "../../../frontend/json/pacotes-hotel.json");
 
 const hotelImagensPath = path.join(__dirname, '../../../frontend/img/hotel/');
 const quartosImagensPath = path.join(__dirname, '../../../frontend/img/quartos/');
@@ -300,6 +301,16 @@ export class Routes {
             } else {
                 res.status(404).json({ message: 'Imagem não encontrada.' });
             }
+        });
+
+        // Informações de pacotes
+        app.get('/recanto-perdido/pacotes', (req, res) => {
+            fs.readFile(pacotesPath, 'utf8', (err, data) => {
+                if (err) {
+                    return res.status(500).json({ message: 'Erro ao ler o arquivo pacotes-hotel.json' });
+                }
+                res.json(JSON.parse(data));
+            });
         });
     }   
 }
