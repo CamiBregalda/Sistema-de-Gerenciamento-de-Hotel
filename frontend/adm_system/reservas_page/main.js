@@ -1,6 +1,8 @@
+let reservas = null;
+
 async function carregarReservas() {
     const response = await fetch('http://localhost:8080/recanto-perdido/reservas');
-    const reservas = await response.json();
+    reservas = await response.json();
 
     const listaReservas = document.getElementById('reservas-hotel');
     listaReservas.innerHTML = '';
@@ -24,11 +26,31 @@ async function carregarReservas() {
             </div>
         </div>
         <div class="reservas-btn">
-            <button class="delete-btn" onclick="deleteServico(${reserva.id})">X</button>
+            <button class="delete-btn" onclick="deleteReserva(${reserva.id})">X</button>
         </div>
         `;
         listaReservas.appendChild(reservaDiv);
     });
+}
+
+// Função para excluir uma reserva
+async function deleteReserva(id) {
+    const reserva = reservas.find((s) => s.id === id.toString());
+
+    if (confirm('Tem certeza de que deseja excluir esta reserva?')) {
+        reservas = reservas.filter((reserva) => reserva.id !== id.toString());
+        
+        response = await fetch('http://localhost:8080/recanto-perdido/reservas', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(reservas),
+        });
+    
+        const result = await response.json();
+        alert(result.message);
+
+        carregarReservas();
+    }
 }
 
 carregarReservas();

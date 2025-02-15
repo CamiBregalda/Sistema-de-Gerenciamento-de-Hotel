@@ -123,20 +123,26 @@ async function addReserva() {
 
         const ultimoId = reservas.reduce((maxId, reserva) => Math.max(maxId, parseInt(reserva.id)), 0)
 
+        const urlParams = new URLSearchParams(window.location.search);
+        const idQuarto = urlParams.get('id');
+
         const novaReserva = { 
             id: (ultimoId + 1).toString(), 
-            nome: nome,
-            numeroAcompanhantes: numeroAcompanhantes,
             dataEntrada: dataEntrada,
             dataSaida: dataSaida,
+            idQuarto: idQuarto,
+            nomeCliente: nome,
+            numeroAcompanhantes: numeroAcompanhantes,
             contato: contato,
             email: email
         };
 
+        reservas.push(novaReserva);
+
         response = await fetch('http://localhost:8080/recanto-perdido/reservas', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(novaReserva),
+            body: JSON.stringify(reservas),
         });
     
         const result = await response.json();

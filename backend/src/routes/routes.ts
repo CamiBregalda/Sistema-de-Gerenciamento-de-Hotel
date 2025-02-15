@@ -206,45 +206,13 @@ export class Routes {
         });
 
         app.post('/recanto-perdido/reservas', (req, res) => {
-            const updatedReservaInfo = req.body;
+            const reservas = req.body;
 
-            fs.readFile(reservasPath, 'utf8', (err, data) => {
+            fs.writeFile(reservasPath, JSON.stringify(reservas, null, 2), 'utf8', (err) => {
                 if (err) {
-                    return res.status(500).json({ message: 'Erro ao ler o arquivo reservas-hotel.json' });
+                    return res.status(500).json({ message: 'Erro ao salvar o arquivo.' });
                 }
-        
-                let reservas;
-                try {
-                    reservas = JSON.parse(data);
-                } catch (error) {
-                    return res.status(500).json({ message: 'Erro ao processar os dados do JSON' });
-                }
-        
-                const quartoOcupado = reservas.some(reserva => {
-                    const entradaExistente = new Date(reserva.dataEntrada);
-                    const saidaExistente = new Date(reserva.dataSaida);
-        
-                    // Se a nova reserva estiver entre as datas de outra reserva existente
-                    const conflitoDatas =
-                        (updatedReservaInfo.dataEntrada >= entradaExistente && updatedReservaInfo.dataEntrada < saidaExistente) || 
-                        (updatedReservaInfo.dataSaida > entradaExistente && updatedReservaInfo.dataSaida <= saidaExistente) ||
-                        (updatedReservaInfo.dataEntrada <= entradaExistente && updatedReservaInfo.dataSaida >= saidaExistente);
-        
-                    return conflitoDatas;
-                });
-        
-                if (quartoOcupado) {
-                    return res.status(400).json({ message: 'Já existe uma reserva nesse quarto nesse intervalo de datas' });
-                }
-
-                reservas.push(updatedReservaInfo);
-        
-                fs.writeFile(reservasPath, JSON.stringify(reservas, null, 2), 'utf8', (err) => {
-                    if (err) {
-                        return res.status(500).json({ message: 'Erro ao salvar o arquivo.' });
-                    }
-                    res.json({ message: 'Informações de reserva atualizadas com sucesso!' });
-                });
+                res.json({ message: 'Informações de reserva atualizadas com sucesso!' });
             });
         });
 
