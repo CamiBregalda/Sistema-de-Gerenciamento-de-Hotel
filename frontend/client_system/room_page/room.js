@@ -20,7 +20,7 @@ function criarCarrossel(imagens) {
 function criarDescricao(quarto) {
     return `
         <div class = "texto">
-            <h3>${quarto.id}</h3>
+            <h3>${quarto.nome}</h3>
             <hr/>
             <div>
                 <p>${quarto.descricao}</p>

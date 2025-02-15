@@ -47,11 +47,11 @@ function criarCarrossel(imagens) {
 function criarDescricao(quarto) {
     return `
         <div class = "texto">
-            <h3>${quarto.id}</h3>
+            <h3>${quarto.nome}</h3>
             <hr/>
             <div>
                 <p>${quarto.descricao}</p>
-                <p> <b>preço: </b>R$ ${quarto.precoPorNoite},00</p>
+                <p> <b>Preço: </b>R$ ${quarto.precoPorNoite},00</p>
             </div>
             <button class="fechaDetalhes">Fechar Detalhes</button>
         </div>
