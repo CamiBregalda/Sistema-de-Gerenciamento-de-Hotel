@@ -59,6 +59,12 @@ function criarDescricao(quarto) {
     `
 }
 
+document.addEventListener("click", function(event) {
+    if (event.target.classList.contains("fechaDetalhes")) {
+        window.location.href = "../room_page/room.html";
+    }
+});
+
 function configuraCarrosseis(container) {
     const carrosselContainers = container.querySelectorAll('.carrossel');
 
