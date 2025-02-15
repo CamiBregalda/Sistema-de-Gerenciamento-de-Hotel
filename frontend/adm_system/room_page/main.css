@@ -175,3 +175,23 @@ button:hover {
 #nova-foto {
     margin-top: 5px;
 }
+
+@media (max-width: 1000px) {
+    .campos {
+        gap: 0;
+    }
+
+    .campos-input {
+        margin-top: 1vw;
+    }
+
+    .campos-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .campos-input textarea {
+        min-height: 10vw;
+    }
+}
