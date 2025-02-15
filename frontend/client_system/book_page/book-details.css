@@ -67,9 +67,12 @@ button{
 }
 
 .texto{
+    color: #0d3010;
+    font-size: 17px;
     display: flex;
     flex-direction: column;
     margin-top: 2vw;
+    width: 90%;
 }
 
 .texto h3{
@@ -82,10 +85,18 @@ button{
     margin-bottom: 2vh;
 }
 
+.botoes{
+    display: flex;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    justify-content: space-between;
+}
+
+.reservarQuarto,
 .fechaDetalhes{
     background-color: #4b9c486b;
+    color: #fff;
     width: 40%;
     height: 5vh;
-    margin: 0.7em auto;
     border-radius: 7px;
 }

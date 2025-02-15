@@ -1,36 +1,37 @@
 {
-    "nome": "Recanto Perdido",
-    "descricao": "Um luxuoso hotel 5 estrelas localizado no coração da lendária cidade de Ratanabá com vista para as árvores da floresta amazônica. Oferece uma experiência única e mágica para aventureiros e viajantes curiosos, sendo o local perfeito para férias ou viagens a trabalho.",
-    "endereco": {
-        "rua": "Rua dos Mistérios",
-        "numero": "7",
-        "bairro": "Centro",
-        "cidade": "Ratanabá",
-        "estado": "AM",
-        "codigoPostal": "69000-000",
-        "pais": "Brasil"
-    },
-    "servicosPrestados": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10"
-    ],
-    "contatos": {
-        "telefone": "+55 92 91234-5678",
-        "email": "recantoPerdido@hotelratanaba.com",
-        "website": "https://www.hotelratanaba.com"
-    },
-    "imagens": [
-        "hotel-1.jpg",
-        "hotel-2.jpg",
-        "hotel-3.jpg",
-        "hotel-4.jpg"
-    ]
+  "nome": "Recanto Perdido",
+  "descricao": "Um luxuoso hotel 5 estrelas localizado no coração da lendária cidade de Ratanabá com vista para as árvores da floresta amazônica. Oferece uma experiência única e mágica para aventureiros e viajantes curiosos, sendo o local perfeito para férias ou viagens a trabalho.",
+  "endereco": {
+    "rua": "Rua dos Mistérios",
+    "numero": "7",
+    "bairro": "Centro",
+    "cidade": "Ratanabá",
+    "estado": "AM",
+    "codigoPostal": "69000-000",
+    "pais": "Brasil"
+  },
+  "servicosPrestados": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10"
+  ],
+  "contatos": {
+    "telefone": "+55 92 91234-5678",
+    "email": "recantoPerdido@hotelratanaba.com",
+    "website": "https://www.hotelratanaba.com"
+  },
+  "imagens": [
+    "hotel-1.jpg",
+    "hotel-2.jpg",
+    "hotel-3.jpg",
+    "hotel-4.jpg",
+    "Captura de tela 2025-02-15 132053.png"
+  ]
 }
