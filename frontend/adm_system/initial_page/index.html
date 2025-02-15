@@ -5,12 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciamento Recanto Perdido</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../header/header.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Cormorant+Garamond&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <div class="header">
+            <img src="../../img/logos/logoNova.png" alt="">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../initial_page/index.html">início</a>
+                    </li>
+                    <li>
+                        <a href="../room_page/index.html">quartos</a>
+                    </li>
+                    <li>
+                        <a href="../reservas_page/index.html">reservas</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
     <!-- Seção de Atualização de Informações do Hotel -->
     <div class="container">
         <h2> Formulário de Atualização </h2>
@@ -144,6 +164,7 @@
             </div>
 
             <input type="file" id="nova-foto" />
+            <br>
             <button id="add-imagens" class="add-imagens-btn" type="button" onclick='salvarImagemHotel()'>Adicionar Imagem</button>
         </div>
     </section>

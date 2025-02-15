@@ -97,6 +97,10 @@ form .campos-input textarea {
     justify-content: center;
 }
 
+.add-imagens-btn {
+    margin-top: 5px;
+}
+
 /* Conteiner de imagens */
 .container-imagens {
     max-width: 80vw;
@@ -158,8 +162,13 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .delete-imagens-btn:hover {
     background-color: grey;
+}
+
+#nova-foto {
+    margin-top: 5px;
 }

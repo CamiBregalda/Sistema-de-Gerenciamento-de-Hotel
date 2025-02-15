@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a,
+h2,
+h3,
+button{
+    font-family: 'cinzel';
+}
+
+p{
+    font-family: "Old Standard TT";
+}
+
+.header{
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header{
+    background-color: #0d3010;
+}
+
+header img{
+    width: 200px;
+    margin-left: 2vw;
+}
+
+nav {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 15vw;
+}
+
+header li{
+    padding-top: 3vw;
+    white-space: nowrap;
+}
+
+header a{
+    color: #dab836;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+nav ul li a:hover {
+    background-color:rgb(31, 90, 36);
+    border-radius: 5px;
+}
