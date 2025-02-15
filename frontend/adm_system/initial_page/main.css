@@ -5,11 +5,18 @@
     overflow-x: hidden;
 }
 
+section{
+    margin: 2vw;
+}
+
 body {
-    background-color: #f5f5f5;
+   
+    background-color: #a7faa46b;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
     max-width: 55vw;
     margin: 0 auto;
     padding: 0.5%;
@@ -27,6 +34,7 @@ h2 {
 }
 
 .informacoes-hotel, .enderecos-hotel {
+    width: 50vw;   
     margin: 0 auto;
     background: #fff;
     border: 1px solid #ddd;
@@ -68,7 +76,7 @@ form .campos-input textarea {
 
 form .campos-input textarea {
     height: 8vw;
-    resize: vertical;
+    resize: none;
 }
 
 button {
@@ -78,7 +86,6 @@ button {
     padding: 10px 15px;
     font-size: 14px;
     border-radius: 5px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
@@ -118,7 +125,6 @@ button:hover {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 .servicos button.edit-btn {
@@ -132,7 +138,7 @@ button:hover {
 }
 
 .add-servicos-btn {
-    margin-top: 20px;
+    margin: 2rem auto;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -193,6 +199,8 @@ button:hover {
 }
 
 .container-imagens {
+    display: flex;
+    flex-direction: column;
     max-width: 80vw;
     margin: 0 auto;
     padding: 20px;
@@ -256,7 +264,7 @@ button:hover {
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin: 5px 0;
+    margin: 5px auto;
 }
 
 .add-imagens-btn:hover {

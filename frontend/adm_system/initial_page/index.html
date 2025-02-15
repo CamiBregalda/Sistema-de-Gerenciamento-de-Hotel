@@ -32,93 +32,94 @@
     </header>
 
     <!-- Seção de Atualização de Informações do Hotel -->
-    <div class="container">
-        <h2> Formulário de Atualização </h2>
-    </div>
     
     <section>
+
         <div class="container">
-            <div class="informacoes-hotel">
-                <form action="javascript:void(0)" method="POST">
-                    <div class="campos">
-                        <div class="campos-input">
-                            <label for="nome">Nome:</label>
-                            <input type="text" id="nome" name="nome">
+            <h2> Formulário de Atualização </h2>
+            <div class="container">
+                <h3> Atualização de Dados</h3>
+                <div class="informacoes-hotel">
+                    <form action="javascript:void(0)" method="POST">
+                        <div class="campos">
+                            <div class="campos-input">
+                                <label for="nome">Nome:</label>
+                                <input type="text" id="nome" name="nome">
+                            </div>
+                            <div class="campos-input">
+                                <label for="telefone">Telefone:</label>
+                                <input type="text" id="telefone" name="telefone">
+                            </div>
                         </div>
-                        <div class="campos-input">
-                            <label for="telefone">Telefone:</label>
-                            <input type="text" id="telefone" name="telefone">
+                        <div class="campos">
+                            <div class="campos-input">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email">
+                            </div>
+                            <div class="campos-input">
+                                <label for="website">Website:</label>
+                                <input type="website" id="website" name="website">
+                            </div>
                         </div>
-                    </div>
-                    <div class="campos">
-                        <div class="campos-input">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email">
+                        <div class="campos">
+                            <div class="campos-input">
+                                <label for="descricao">Descrição:</label>
+                                <textarea id="descricao" name="descricao"></textarea>
+                            </div>
                         </div>
-                        <div class="campos-input">
-                            <label for="website">Website:</label>
-                            <input type="website" id="website" name="website">
+                        
+                        <div class="att-info-btn">
+                            <button id="atualizar-hotel-info" type="submit">Atualizar Informações</button>
                         </div>
-                    </div>
-                    <div class="campos">
-                        <div class="campos-input">
-                            <label for="descricao">Descrição:</label>
-                            <textarea id="descricao" name="descricao"></textarea>
-                        </div>
-                    </div>
-                    
-                    <div class="att-info-btn">
-                        <button id="atualizar-hotel-info" type="submit">Atualizar Informações</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Seção de Atualização do Endereço -->
-    <section> 
-        <div class="container">
-            <div class="enderecos-hotel">
-                <form action="javascript:void(0)" method="POST">
-                    <div class="campos">
-                        <div class="campos-input">
-                            <label for="rua">Rua:</label>
-                            <input type="text" id="rua" name="rua">
+    
+        <!-- Seção de Atualização do Endereço --> 
+         <div class="container">
+            <h3>Atualização de Endereço</h3>
+                <div class="enderecos-hotel">
+                    <form action="javascript:void(0)" method="POST">
+                        <div class="campos">
+                            <div class="campos-input">
+                                <label for="rua">Rua:</label>
+                                <input type="text" id="rua" name="rua">
+                            </div>
+                            <div class="campos-input">
+                                <label for="numero">Número:</label>
+                                <input type="text" id="numero" name="numero">
+                            </div>
+                            <div class="campos-input">
+                                <label for="bairro">Bairro:</label>
+                                <input type="text" id="bairro" name="bairro">
+                            </div>
                         </div>
-                        <div class="campos-input">
-                            <label for="numero">Número:</label>
-                            <input type="text" id="numero" name="numero">
+                        <div class="campos">
+                            <div class="campos-input">
+                                <label for="cidade">Cidade:</label>
+                                <input type="text" id="cidade" name="cidade">
+                            </div>
+                            <div class="campos-input">
+                                <label for="estado">Estado:</label>
+                                <input type="text" id="estado" name="estado">
+                            </div>
                         </div>
-                        <div class="campos-input">
-                            <label for="bairro">Bairro:</label>
-                            <input type="text" id="bairro" name="bairro">
+                        <div class="campos">
+                            <div class="campos-input">
+                                <label for="pais">País:</label>
+                                <input type="text" id="pais" name="pais">
+                            </div>
+                            <div class="campos-input">
+                                <label for="codigoPostal">Código Postal:</label>
+                                <input type="email" id="codigoPostal" name="codigoPostal">
+                            </div>
                         </div>
-                    </div>
-                    <div class="campos">
-                        <div class="campos-input">
-                            <label for="cidade">Cidade:</label>
-                            <input type="text" id="cidade" name="cidade">
+    
+                        <div class="att-info-btn">
+                            <button id="atualizar-hotel-endereco" type="submit">Atualizar Endereço</button>
                         </div>
-                        <div class="campos-input">
-                            <label for="estado">Estado:</label>
-                            <input type="text" id="estado" name="estado">
-                        </div>
-                    </div>
-                    <div class="campos">
-                        <div class="campos-input">
-                            <label for="pais">País:</label>
-                            <input type="text" id="pais" name="pais">
-                        </div>
-                        <div class="campos-input">
-                            <label for="codigoPostal">Código Postal:</label>
-                            <input type="email" id="codigoPostal" name="codigoPostal">
-                        </div>
-                    </div>
-
-                    <div class="att-info-btn">
-                        <button id="atualizar-hotel-endereco" type="submit">Atualizar Endereço</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -162,10 +163,8 @@
             <div id="imagens-hotel">
                 <!-- Os serviços serão listados aqui dinamicamente -->
             </div>
-
-            <input type="file" id="nova-foto" />
-            <br>
-            <button id="add-imagens" class="add-imagens-btn" type="button" onclick='salvarImagemHotel()'>Adicionar Imagem</button>
+            <input type="file" id="nova-foto"/>
+            <button id="add-imagens" class="add-imagens-btn" type="button" onclick='salvarImagemHotel()'>Salvar Imagem</button>
         </div>
     </section>
 

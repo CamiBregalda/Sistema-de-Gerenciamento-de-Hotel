@@ -53,7 +53,10 @@ function criarDescricao(quarto) {
                 <p>${quarto.descricao}</p>
                 <p> <b>Preço: </b>R$ ${quarto.precoPorNoite},00</p>
             </div>
-            <button class="fechaDetalhes">Fechar Detalhes</button>
+            <div class="botoes">
+                <button class="reservarQuarto">Reservar Quarto</button>
+                <button class="fechaDetalhes">Fechar Detalhes</button>
+            </div>
         </div>
 
     `
