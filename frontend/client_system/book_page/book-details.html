@@ -44,6 +44,40 @@
             </div>
         </div>
     </section>
+
+    <section>
+        <div id="modal">
+            <h3 id="modalTitulo">reservar quarto</h3>
+            <div class="form-modal">
+                <label for="nomeCliente">Nome:</label>
+                <input type="text" id="nomeCliente" placeholder="Digite o seu nome">
+            </div>
+            <div class="form-modal">
+                <label for="numeroAcompanhantesCliente">Número de acompanhantes:</label>
+                <input type="number" id="numeroAcompanhantesCliente">
+            </div>
+            <div class="form-modal">
+                <label for="dataEntradaCliente">Data de entrada:</label>
+                <input type="date" id="dataEntradaCliente">
+            </div>
+            <div class="form-modal">
+                <label for="dataSaídaCliente">Data de saída:</label>
+                <input type="date" id="dataSaídaCliente">
+            </div>
+            <div class="form-modal">
+                <label for="contatoCliente">Telefone para contato:</label>
+                <input type="text" id="contatoCliente" placeholder="Digite o seu contato">
+            </div>
+            <div class="form-modal">
+                <label for="emailCliente">E-mail para contato:</label>
+                <input type="text" id="emailCliente" placeholder="Digite o seu email">
+            </div>
+            <div class="buttons">
+                <button onclick="fecharModal()">Cancelar</button>
+                <button id="modalBotao" onclick="addReserva()">Adicionar Reserva</button>
+            </div>
+        </div>
+    </section>
     
     <footer>
         <footer id="contact">

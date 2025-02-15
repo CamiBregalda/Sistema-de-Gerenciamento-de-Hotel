@@ -100,3 +100,47 @@ button{
     height: 5vh;
     border-radius: 7px;
 }
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+#modal.active {
+    display: block;
+}
+#modal h3 {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 10px;
+}
+.form-modal {
+    margin-bottom: 10px;
+}
+.form-modal label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.form-modal input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#modal .buttons {
+    display: flex;
+    justify-content: center;
+    text-align: right;
+}
+#modal .buttons button {
+    margin-left: 10px;
+    padding: 5px 10px;
+}

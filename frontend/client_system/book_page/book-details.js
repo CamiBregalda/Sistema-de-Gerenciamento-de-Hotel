@@ -8,7 +8,6 @@ async function carregarDetalhesQuarto(){
         const id = urlParams.get('id');
 
         const response = await fetch(`http://localhost:8080/recanto-perdido/quartos/${id}`);
-        
         const quarto = await response.json();
 
         const detalhesHTML = `
@@ -54,7 +53,7 @@ function criarDescricao(quarto) {
                 <p> <b>Preço: </b>R$ ${quarto.precoPorNoite},00</p>
             </div>
             <div class="botoes">
-                <button class="reservarQuarto">Reservar Quarto</button>
+                <button class="reservarQuarto" onclick="mostrarModal()">Reservar Quarto</button>
                 <button class="fechaDetalhes">Fechar Detalhes</button>
             </div>
         </div>
@@ -95,6 +94,56 @@ function configuraCarrosseis(container) {
         });
 
     });
+}
+
+function mostrarModal() {
+    document.getElementById('modal').classList.add('active');
+}
+
+function fecharModal() {
+    document.getElementById('modal').classList.remove('active');
+}
+
+async function addReserva() {
+    const nome = document.getElementById('nomeCliente').value;
+    const numeroAcompanhantes = document.getElementById('numeroAcompanhantesCliente').value;
+    const dataEntrada = document.getElementById('dataEntradaCliente').value;
+    const dataSaida = document.getElementById('dataSaídaCliente').value;
+    const contato = document.getElementById('contatoCliente').value;
+    const email = document.getElementById('emailCliente').value;
+
+    if(dataEntrada > dataSaida){
+        alert('Data de entrada deve ser menor que a data de saída.');
+        return;
+    }
+
+    if (nome && numeroAcompanhantes && dataEntrada && dataSaida && contato && email) {
+        let response = await fetch(`http://localhost:8080/recanto-perdido/reservas`);
+        const reservas = await response.json();
+
+        const ultimoId = reservas.reduce((maxId, reserva) => Math.max(maxId, parseInt(reserva.id)), 0)
+
+        const novaReserva = { 
+            id: (ultimoId + 1).toString(), 
+            nome: nome,
+            numeroAcompanhantes: numeroAcompanhantes,
+            dataEntrada: dataEntrada,
+            dataSaida: dataSaida,
+            contato: contato,
+            email: email
+        };
+
+        response = await fetch('http://localhost:8080/recanto-perdido/reservas', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(novaReserva),
+        });
+    
+        const result = await response.json();
+        alert(result.message); 
+    } else {
+        alert("Por favor, preencha todos os campos.");
+    }
 }
 
 carregarDetalhesQuarto();
