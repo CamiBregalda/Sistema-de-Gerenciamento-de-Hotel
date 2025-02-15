@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a,
+h2,
+h3,
+button{
+    font-family: 'cinzel';
+}
+
+p{
+    font-family: "Old Standard TT";
+}
+
+.container{
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header{
+    background-color: #0d3010;
+}
+
+header img{
+    width: 200px;
+    margin-left: 2vw;
+}
+
+nav,
+footer .sugestao{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+}
+
+header li{
+    padding-top: 3vw;
+    white-space: nowrap;
+}
+
+header a{
+    color: #dab836;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+
+footer{
+    background-color: #0d3010;
+    padding: 20px;
+    color: #fff;
+}
+
+footer img{
+    height: 20px;
+}
+
+#contact{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 5vw;
+}
+
+footer .metodosContato{
+    flex-direction: column-reverse;
+    display: flex;
+    flex-direction: column;
+    padding-left: 4vw;
+    gap: 2vw;
+}
+
+footer .contato div{
+    margin-top: 1vw;
+}
+
+footer .sugestao{
+    flex-direction: column;
+    gap: 1vw;
+}
+
+form input,
+form textarea{
+    background-color: #59c766;
+    display: block;
+    width: 320px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+::placeholder{
+    color: white;
+    font-family: "Old Standard TT";
+}
+
+form textarea{
+    resize: none;
+    height: 4vw;
+}
+
+footer h3{
+    font-style: italic;
+    color: #4d9d56;
+}
