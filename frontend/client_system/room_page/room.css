@@ -35,7 +35,7 @@
     flex-wrap: wrap;
     margin: 1vw;
     width: 31vw;
-    height: 35vw;
+    height: 36vw;
 }
 
 .carrossel{
@@ -92,12 +92,12 @@
     align-items: center;
     background-color: #defbda;
     width: 95%;
-    height: 30%;
-    bottom: 8px;
+    height: 34%;
+    bottom: 10px;
 }
 
 .texto div{
-    align-items: flex-start ;
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -126,3 +126,124 @@ hr{
 }
 
 /*utilizar position relative para o texto e refazer a formatação (por conta da adição do carrossel)*/
+
+
+@media (max-width: 1435px){
+
+    .quarto{
+        width: 30vw;
+        height: 40vw;
+        margin-bottom: 7vh;
+    }
+
+    #rooms .container{
+        margin-top: 5vw;
+    }
+
+    .quartoArvore,
+    .quartoSolo{
+        justify-content: center;
+    }
+
+    .texto{
+        height: 26vh;
+        top: 25vw;
+    }
+
+}
+
+@media (max-width: 1000px){
+
+    .quarto{
+        width: 47vw;
+        height: 40vw;
+        margin-bottom: 7vh;
+    }
+
+    .foto{
+        display: flex;
+        overflow: hidden;
+        width: 95vw;
+    }
+
+    .foto img{
+        width: 50vw;
+        height: 35vw;
+    }
+
+    .texto{
+        height: 25vh;
+        top: 25vw;
+    }
+
+}
+
+@media (max-width:722px){
+
+    .quarto{
+        display: flex;
+        justify-content: center;
+        width: 70vw;
+        height: 50vw;
+        margin-bottom: 9vw;
+       }
+
+    .foto{
+        overflow: hidden;
+        width: 80vw;
+    }
+
+    .carrossel{
+        width: 90vw;
+    }
+    
+    .foto img{
+        width: 80vw;
+        height: 45vw;
+    }
+
+    .texto{
+        height: 25vh;
+        top: 33vw;
+    }
+
+    .prev,
+    .next{
+        font-size: 4vw;
+        width: 5vw;
+        height: 5vw;
+    }
+
+}
+
+@media (max-width: 600px){
+
+    .quarto{
+        margin-bottom: 20vh;
+    }
+
+    .foto{
+        overflow: hidden;
+        width: 75vw;
+    }
+    
+    .carrossel {
+        margin-bottom: 5vw;
+        position: relative;
+        display: flex;
+        width: 100% ;
+        height: 60vw;
+    }
+
+    .texto{
+        height: 25vh;
+        top: 37vw;
+    }
+
+    .prev,
+    .next{
+        font-size: 5vw;
+        width: 6vw;
+        height: 7vw;
+    }
+}
