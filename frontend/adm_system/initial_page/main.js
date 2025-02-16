@@ -150,7 +150,7 @@ function mostrarModal(acao, id) {
 
         document.getElementById('modalTitulo').innerText = 'Atualizar Serviço';
         document.getElementById('modalBotao').innerText = 'Atualizar Serviço';
-        document.getElementById('modalBotao').setAttribute(`onclick', 'updateServico(${id})`);
+        document.getElementById('modalBotao').setAttribute('onclick', `updateServico(${id})`);
     } else if (acao === "adicionar") {
         document.getElementById('modalTitulo').innerText = 'Adicionar Serviço';
         document.getElementById('modalBotao').innerText = 'Adicionar Serviço';

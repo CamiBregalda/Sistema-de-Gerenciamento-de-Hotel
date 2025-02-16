@@ -13,6 +13,7 @@ const pacotesPath = path.join(__dirname, "../../../frontend/json/pacotes-hotel.j
 
 const hotelImagensPath = path.join(__dirname, '../../../frontend/img/hotel/');
 const quartosImagensPath = path.join(__dirname, '../../../frontend/img/quartos/');
+const servicosImagensPath = path.join(__dirname, '../../../frontend/img/servicos/');
 
 // Função para verificar e criar a pasta caso não exista
 const ensureDirectoryExistence = (filePath) => {
@@ -178,7 +179,7 @@ export class Routes {
 
         app.delete('/recanto-perdido/servicos/imagem/:foto', (req, res) => {
             const { foto } = req.params;
-            const filePath = path.join(__dirname, '../../../frontend/img/servicos/', foto);
+            const filePath = path.join(servicosImagensPath, foto);
 
             // Verifica se o arquivo existe
             if (fs.existsSync(filePath)) {
