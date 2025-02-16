@@ -44,7 +44,8 @@ section .container{
     object-fit: cover;
 }
 
-h2{ font-style: italic;
+h2 { 
+    font-style: italic;
     font-size: 2vw;
     color: #ab9217;
     margin: 5vw auto;
@@ -71,7 +72,6 @@ button{
     display: flex;
     align-items: center;
     width: 60%;
-    height: 20vw;
     margin: 3vw;
     border-radius: 40px;
     gap: 10%;

@@ -82,7 +82,6 @@ async function carregarContatos() {
         const hotel = await response.json();
 
         // Iterando sobre os contato e adicionando ao HTML
-
             const contatoHTML = `
                 <div class = "contato">
                     <h3>Fale conosco</h3>

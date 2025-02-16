@@ -119,3 +119,51 @@ footer h3{
     font-style: italic;
     color: #4d9d56;
 }
+
+
+@media (max-width: 600px) {
+    #contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .localizacao iframe {
+        width: 80%;
+        max-width: 600px;
+        height: 300px;
+    }
+}
+
+@media (600px <= width <= 800px) {
+    #contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (800px <= width <= 1200px) {
+    #contact {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0vw;
+    }
+
+    .metodosContato, .sugestao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        width: 80%; 
+    }
+
+    .localizacao {
+        margin-top: 2vw;
+        grid-column: 1 / span 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

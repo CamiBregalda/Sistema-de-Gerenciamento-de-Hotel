@@ -60,3 +60,9 @@ nav ul li a:hover {
     background-color:rgb(31, 90, 36);
     border-radius: 5px;
 }
+
+@media (max-width: 600px) {
+    header ul {
+        gap: 2vw
+    }
+}
