@@ -1,9 +1,7 @@
 let quarto = null;
 let quartos = null;
 
-async function carregarQuarto() {
-    const id = 1;
-
+async function carregarQuarto(id) {
     const response = await fetch(`http://localhost:8080/recanto-perdido/quartos/${id}`);
     quarto = await response.json();
 
@@ -17,7 +15,7 @@ async function carregarQuarto() {
     } else {
         document.querySelector('input[name="subterraneo"]').checked = false;
     }
-
+    
     carregarImagens(quarto.imagens);
 }
 
@@ -146,4 +144,33 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("atualizar-quarto").addEventListener("click", salvarAtualizacoes);
 });
 
-carregarQuarto();
+async function carregarDadosSelect() {
+    const selectId = document.getElementById("idQuarto");
+
+    try {
+        const response = await fetch(`http://localhost:8080/recanto-perdido/quartos`);
+        const quartos_existentes = await response.json();
+
+        selectId.innerHTML = "";
+
+        quartos_existentes.forEach(quarto => {
+            const option = document.createElement("option");
+            option.value = quarto.id;
+            option.textContent = `Quarto ${quarto.id}`;
+            selectId.appendChild(option);
+        });
+
+        if (quartos_existentes.length > 0) {
+            carregarQuarto(selectId.value);
+        }
+
+        selectId.addEventListener("change", function () {
+            carregarQuarto(this.value);
+        });
+
+    } catch (error) {
+        console.error("Erro ao carregar os quartos:", error);
+    }
+}
+
+carregarDadosSelect();
