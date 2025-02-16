@@ -94,3 +94,97 @@ button{
     height: 20vw;
     object-fit: cover;
 }
+
+@media(max-width: 1435px){
+
+    .pacotes .pacote{
+        width: 30%;
+    }
+
+    .pacotes img{
+        height: 32vh;
+    }
+}
+
+
+@media(max-width: 1000px){
+
+   .pacotes .pacote{
+        width: 35%;
+        margin-bottom: 3vh;
+    }
+
+    .atracao0,
+    .atracao1{
+        width: 80vh;
+        height: 30vh;
+        padding: 0% ;
+    }
+
+    .atracoes img{
+        min-width: 32vw;
+        height: 25vh;
+    }
+
+}
+
+
+@media(max-width: 850px){
+
+    .pacotes .pacote{
+        width: 45%;
+    }
+
+    .pacotes img{
+        height: 32vh;
+    }
+
+    .atracoes{
+        width: 100vw;
+        height: 60vh;
+    }
+
+    .atracoes img{
+        min-width: 35vh;
+    }
+
+}
+
+@media(max-width: 600px){
+
+    .pacotes .pacote{
+        width: 60%;
+        margin-bottom: 3vh;
+    }
+
+    .atracoes .atracao0,
+    .atracoes .atracao1{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 3vw;
+        justify-content: center;
+        height: 50vh;
+        width: 70vw;
+        overflow-y: auto;
+    }
+
+    .atracoes .atracao0 div,
+    .atracoes .atracao1 div{
+        width: 50vw;
+        height: 15vh;
+    }
+
+    .atracoes img{
+        min-width: 60vw;
+        height: 30vh;
+    }
+
+    .atracoes .atracao1{
+        padding-left: 0;
+    }
+
+    .atracoes .atracao0{
+        padding-right: 0;
+    }
+}
