@@ -150,7 +150,7 @@ footer h3{
         gap: 0vw;
     }
 
-    .metodosContato, .sugestao {
+    .sugestao {
         display: flex;
         flex-direction: column;
         align-items: center;
