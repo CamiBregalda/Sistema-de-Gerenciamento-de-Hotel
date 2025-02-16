@@ -100,7 +100,7 @@ async function carregarContatos() {
                     </div>
                     <div>
                         <h4>Website:</h4>
-                        <p>${hotel.contatos.website}</p>
+                        <a href="${hotel.contatos.website}">${hotel.contatos.website}</a>
                     </div>
                     
                 </div>
