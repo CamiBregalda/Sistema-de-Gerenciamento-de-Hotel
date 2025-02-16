@@ -1,7 +1,7 @@
 const pacotesClasse = document.querySelector('.pacotes');
 const atracoesClasse = document.querySelector('.atracoes');
 const contatoClasse = document.querySelector('.metodosContato');
-const PlanoDeFundo = document.querySelector('.plano-de-fundo');
+const planoDeFundo = document.querySelector('.plano-de-fundo');
 
 async function carregarPlanoDeFundo() {
     try{
@@ -12,18 +12,16 @@ async function carregarPlanoDeFundo() {
             throw new Error("Nenhuma imagem disponível.");
         }
 
-        const imagemHTML = hotel.imagens[0]; // chat GPT
+        const imagemHTML = hotel.imagens[0];
 
-        console.log(imagemHTML);
-
-            PlanoDeFundo.style.backgroundImage = `url('../../img/hotel/${imagemHTML}')`;
-            PlanoDeFundo.style.backgroundSize = "cover";
-            PlanoDeFundo.style.backgroundPosition = "center";
+        planoDeFundo.style.backgroundImage = `url('../../img/hotel/${imagemHTML}')`;
+        planoDeFundo.style.backgroundSize = "cover";
+        planoDeFundo.style.backgroundPosition = "center";
 
     } catch (error){
-            console.error(error);
-            PlanoDeFundo.innerHTML = `<p>Erro ao carregar o plano de fundo. Tente novamente mais tarde.</p>`;
-        }
+        console.error(error);
+        planoDeFundo.innerHTML = `<p>Erro ao carregar o plano de fundo. Tente novamente mais tarde.</p>`;
+    }
 }   
 
 // Função para carregar e renderizar os pacotes
