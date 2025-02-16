@@ -7,6 +7,7 @@ a,
 h2,
 h3,
 button{
+    text-decoration: none;
     font-family: 'cinzel';
 }
 
@@ -56,7 +57,6 @@ header li{
 
 header a{
     color: #dab836;
-    text-decoration: none;
     font-size: 16px;
     font-weight: lighter;
 }
@@ -120,6 +120,18 @@ footer h3{
     color: #4d9d56;
 }
 
+footer a{
+    color: #fff;
+}
+
+footer .redes-sociais img{
+    margin: 1vh;
+    width: 3vw;
+    height: 3vw;
+    border-radius: 20px;
+    align-items: center;
+    object-fit: contain;
+}
 
 @media (max-width: 600px) {
     #contact {
@@ -132,6 +144,11 @@ footer h3{
         width: 80%;
         max-width: 600px;
         height: 300px;
+    }
+
+    footer .redes-sociais img{
+        width: 5vw;
+        height: 5vw;
     }
 }
 
