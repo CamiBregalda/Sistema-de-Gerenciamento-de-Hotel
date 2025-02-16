@@ -1,6 +1,29 @@
 const pacotesClasse = document.querySelector('.pacotes');
 const atracoesClasse = document.querySelector('.atracoes');
 const contatoClasse = document.querySelector('.metodosContato');
+const PlanoDeFundo = document.querySelector('.plano-de-fundo');
+
+/*async function carregarPlanoDeFundo() {
+    try{
+        const response = await fetch('http://localhost:8080/recanto-perdido');
+
+        const imagens = await response.json();
+
+        imagens.forEach( imagem => {
+            const imagemHTML = `
+                <img src="../../img/pacotes/${hotel.imagens}">        
+            `; //tá errado
+
+            PlanoDeFundo.innerHTML = imagemHTML;
+        })
+
+    } catch{
+        console.error(error) {
+            console.error(error);
+            PlanoDeFundo.innerHTML = `<p>Erro ao carregar o plano de fundo. Tente novamente mais tarde.</p>`;
+        }
+    }   
+}*/
 
 // Função para carregar e renderizar os pacotes
 async function carregarPacotes() {

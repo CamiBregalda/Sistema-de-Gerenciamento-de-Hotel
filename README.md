@@ -30,7 +30,7 @@ O frontend está separado em dois sistemas principais:
 - Localizado em: `frontend/adm_system/login_page`
 - Página inicial: `index.html`
 
-Para visualizar as páginas, basta abrir os arquivos `index.html` diretamente no navegador. 
+Para visualizar as páginas, basta abrir os arquivos correspondentes diretamente no navegador. 
 > Obs. Somente poderá ser efetuado o login na tela de administrador se as credenciais passadas estiverem cadastradas no arquivo `credenciais-hotel.json`.
 
 ---
