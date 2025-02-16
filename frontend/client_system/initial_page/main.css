@@ -1,9 +1,9 @@
-#teste{
-    background-image: linear-gradient(rgba(4, 48, 52, 0.1), rgba(52, 52, 52, 0.6)), url();
-    height: 35vw;
+.plano-de-fundo {
+    width: 100%;
+    height: 35vw; /* Ou um valor fixo, como 300px */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
 }
 
 section .container{

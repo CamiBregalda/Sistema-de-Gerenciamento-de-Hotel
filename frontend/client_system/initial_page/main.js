@@ -3,27 +3,28 @@ const atracoesClasse = document.querySelector('.atracoes');
 const contatoClasse = document.querySelector('.metodosContato');
 const PlanoDeFundo = document.querySelector('.plano-de-fundo');
 
-/*async function carregarPlanoDeFundo() {
+async function carregarPlanoDeFundo() {
     try{
         const response = await fetch('http://localhost:8080/recanto-perdido');
+        const hotel = await response.json();
 
-        const imagens = await response.json();
+        if (!hotel.imagens || hotel.imagens.length === 0) {
+            throw new Error("Nenhuma imagem disponível.");
+        }
 
-        imagens.forEach( imagem => {
-            const imagemHTML = `
-                <img src="../../img/pacotes/${hotel.imagens}">        
-            `; //tá errado
+        const imagemHTML = hotel.imagens[0]; // chat GPT
 
-            PlanoDeFundo.innerHTML = imagemHTML;
-        })
+        console.log(imagemHTML);
 
-    } catch{
-        console.error(error) {
+            PlanoDeFundo.style.backgroundImage = `url('../../img/hotel/${imagemHTML}')`;
+            PlanoDeFundo.style.backgroundSize = "cover";
+            PlanoDeFundo.style.backgroundPosition = "center";
+
+    } catch (error){
             console.error(error);
             PlanoDeFundo.innerHTML = `<p>Erro ao carregar o plano de fundo. Tente novamente mais tarde.</p>`;
         }
-    }   
-}*/
+}   
 
 // Função para carregar e renderizar os pacotes
 async function carregarPacotes() {
@@ -139,3 +140,4 @@ async function carregarContatos() {
 carregarPacotes();
 carregarServicos();
 carregarContatos();
+carregarPlanoDeFundo();
