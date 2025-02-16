@@ -139,18 +139,13 @@ button{
         height: 32vh;
     }
 
-    .atracoes{
-        width: 100vw;
-        height: 60vh;
-    }
-
     .atracoes img{
         min-width: 35vh;
     }
 
 }
 
-@media(max-width: 600px){
+@media(max-width: 800px){
 
     .pacotes .pacote{
         width: 60%;
