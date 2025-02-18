@@ -96,7 +96,6 @@ button{
 }
 
 @media(max-width: 1435px){
-
     .pacotes .pacote{
         width: 30%;
     }
@@ -108,8 +107,7 @@ button{
 
 
 @media(max-width: 1000px){
-
-   .pacotes .pacote{
+    .pacotes .pacote{
         width: 35%;
         margin-bottom: 3vh;
     }
@@ -130,7 +128,6 @@ button{
 
 
 @media(max-width: 850px){
-
     .pacotes .pacote{
         width: 45%;
     }
@@ -146,7 +143,6 @@ button{
 }
 
 @media(max-width: 800px){
-
     .pacotes .pacote{
         width: 60%;
         margin-bottom: 3vh;
