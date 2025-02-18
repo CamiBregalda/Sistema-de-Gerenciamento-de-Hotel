@@ -133,6 +133,19 @@ footer .redes-sociais img{
     object-fit: contain;
 }
 
+@media (max-width: 550px) {
+    header ul {
+        gap: 1vw
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 3vw;
+    }
+}
+
 @media (max-width: 600px) {
     #contact {
         display: flex;
@@ -150,6 +163,10 @@ footer .redes-sociais img{
         width: 5vw;
         height: 5vw;
     }
+
+    header ul {
+        gap: 1vw
+    }
 }
 
 @media (600px <= width <= 800px) {
@@ -157,6 +174,10 @@ footer .redes-sociais img{
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    header ul {
+        gap: 2vw
     }
 }
 
