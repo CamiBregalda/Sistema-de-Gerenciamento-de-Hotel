@@ -2,7 +2,7 @@ const pacotesClasse = document.querySelector('.pacotes');
 const atracoesClasse = document.querySelector('.atracoes');
 const contatoClasse = document.querySelector('.metodosContato');
 const planoDeFundo = document.querySelector('.plano-de-fundo');
-
+/* -- Não estou conseguindo fazer funcionar
 async function carregarPlanoDeFundo() {
     try{
         const response = await fetch('http://localhost:8080/recanto-perdido');
@@ -23,9 +23,9 @@ async function carregarPlanoDeFundo() {
         planoDeFundo.innerHTML = `<p>Erro ao carregar o plano de fundo. Tente novamente mais tarde.</p>`;
     }
 }   
+*/ 
 
 
-/* -- Não estou conseguindo fazer funcionar
 
 async function carregarPlanoDeFundo() {
     try{
@@ -49,35 +49,36 @@ async function carregarPlanoDeFundo() {
 function criarCarrossel(imagens){
     return`
         <div class="carrossel">
+
+        <button class="prev">&lt;</button>
             <div class = "foto">
             ${imagens.map((imagem, index) => `
                 <img src="../../img/hotel/${imagem}" alt="Imagem do hotel" class="${index === 0 && 'ativo'}">
                 `).join('')}            
             </div>
+            <button class="next">&gt;</button>
         </div>`
 }
 
 
 function iniciarCarrossel(){
-    const carrossel = document.querySelector('.carrossel');
-    const imagens = document.querySelectorAll('.foto img');
+    const setaEsquerda = document.querySelector('.prev');
+    const setaDireita = document.querySelector('.next');
 
-    let index = 0;
-
-    function atualizaCarrossel(){
-        imagens.forEach((imagem, i) =>{
-            imagem.classList.toggle('ativo', i === index);
-        });
-    }
+    setaDireita.addEventListener('click', avancar);
+    setaEsquerda.addEventListener('click', voltar);
 
     function avancar(){
         index = (index + 1) % imagens.length;
         atualizaCarrossel();
     }
 
-    setInterval(avancar, 300);
+        function voltar() {
+        index = (index - 1 + imagens.length) % imagens.length;
+        atualizaCarrossel();
+    }
 }
-*/ 
+
 
 
 // Função para carregar e renderizar os pacotes

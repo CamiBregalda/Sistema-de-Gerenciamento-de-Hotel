@@ -1,10 +1,42 @@
+#teste{
+    max-height: 40vw;
+    overflow: hidden;
+}
+
+
 .plano-de-fundo {
     width: 100%;
-    height: 35vw; /* Ou um valor fixo, como 300px */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    height: 40vw;
 }
+
+.carrossel{
+    align-items: center;
+    position: relative;
+}
+
+.foto{
+    align-items: center;
+}
+
+.prev,
+.next{
+    border: none;
+    font-size: 2vw;
+    width: 3vw;
+    height: 3vw;
+    color: #fff;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.next{
+    right: 0;
+}
+
+.prev{
+    left: 0;
+}
+
 
 section .container{
     flex-direction: column;
