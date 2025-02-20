@@ -2,7 +2,7 @@ const pacotesClasse = document.querySelector('.pacotes');
 const atracoesClasse = document.querySelector('.atracoes');
 const contatoClasse = document.querySelector('.metodosContato');
 const planoDeFundo = document.querySelector('.plano-de-fundo');
-/* -- Não estou conseguindo fazer funcionar
+
 async function carregarPlanoDeFundo() {
     try{
         const response = await fetch('http://localhost:8080/recanto-perdido');
@@ -12,20 +12,28 @@ async function carregarPlanoDeFundo() {
             throw new Error("Nenhuma imagem disponível.");
         }
 
-        const imagemHTML = hotel.imagens[0];
+        let index = 0;
 
-        planoDeFundo.style.backgroundImage = `url('../../img/hotel/${imagemHTML}')`;
-        planoDeFundo.style.backgroundSize = "cover";
-        planoDeFundo.style.backgroundPosition = "center";
+        function atualizarPlanoDeFundo() {
+            const imagemHTML = hotel.imagens[index];
+            planoDeFundo.style.backgroundImage = `url('../../img/hotel/${imagemHTML}')`;
+            planoDeFundo.style.backgroundSize = "cover";
+            planoDeFundo.style.backgroundPosition = "center";
+            
+            index = (index + 1) % hotel.imagens.length;
+        }
+
+        atualizarPlanoDeFundo(); 
+        setInterval(atualizarPlanoDeFundo, 10000); 
 
     } catch (error){
         console.error(error);
         planoDeFundo.innerHTML = `<p>Erro ao carregar o plano de fundo. Tente novamente mais tarde.</p>`;
     }
 }   
-*/ 
 
 
+/* -- Não estou conseguindo fazer funcionar
 
 async function carregarPlanoDeFundo() {
     try{
@@ -49,36 +57,35 @@ async function carregarPlanoDeFundo() {
 function criarCarrossel(imagens){
     return`
         <div class="carrossel">
-
-        <button class="prev">&lt;</button>
             <div class = "foto">
             ${imagens.map((imagem, index) => `
                 <img src="../../img/hotel/${imagem}" alt="Imagem do hotel" class="${index === 0 && 'ativo'}">
                 `).join('')}            
             </div>
-            <button class="next">&gt;</button>
         </div>`
 }
 
 
 function iniciarCarrossel(){
-    const setaEsquerda = document.querySelector('.prev');
-    const setaDireita = document.querySelector('.next');
+    const carrossel = document.querySelector('.carrossel');
+    const imagens = document.querySelectorAll('.foto img');
 
-    setaDireita.addEventListener('click', avancar);
-    setaEsquerda.addEventListener('click', voltar);
+    let index = 0;
+
+    function atualizaCarrossel(){
+        imagens.forEach((imagem, i) =>{
+            imagem.classList.toggle('ativo', i === index);
+        });
+    }
 
     function avancar(){
         index = (index + 1) % imagens.length;
         atualizaCarrossel();
     }
 
-        function voltar() {
-        index = (index - 1 + imagens.length) % imagens.length;
-        atualizaCarrossel();
-    }
+    setInterval(avancar, 300);
 }
-
+*/ 
 
 
 // Função para carregar e renderizar os pacotes
