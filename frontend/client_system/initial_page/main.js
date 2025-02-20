@@ -24,6 +24,62 @@ async function carregarPlanoDeFundo() {
     }
 }   
 
+
+/* -- Não estou conseguindo fazer funcionar
+
+async function carregarPlanoDeFundo() {
+    try{
+        const response = await fetch('http://localhost:8080/recanto-perdido');
+        const hotel = await response.json();
+
+        if (!hotel.imagens || hotel.imagens.length === 0) {
+            throw new Error("Nenhuma imagem disponível.");
+        }
+
+        planoDeFundo.innerHTML = criarCarrossel(hotel.imagens);
+        iniciarCarrossel();
+
+    } catch (error){
+        console.error(error);
+        planoDeFundo.innerHTML = `<p>Erro ao carregar o plano de fundo. Tente novamente mais tarde.</p>`;
+    }
+}   
+
+
+function criarCarrossel(imagens){
+    return`
+        <div class="carrossel">
+            <div class = "foto">
+            ${imagens.map((imagem, index) => `
+                <img src="../../img/hotel/${imagem}" alt="Imagem do hotel" class="${index === 0 && 'ativo'}">
+                `).join('')}            
+            </div>
+        </div>`
+}
+
+
+function iniciarCarrossel(){
+    const carrossel = document.querySelector('.carrossel');
+    const imagens = document.querySelectorAll('.foto img');
+
+    let index = 0;
+
+    function atualizaCarrossel(){
+        imagens.forEach((imagem, i) =>{
+            imagem.classList.toggle('ativo', i === index);
+        });
+    }
+
+    function avancar(){
+        index = (index + 1) % imagens.length;
+        atualizaCarrossel();
+    }
+
+    setInterval(avancar, 300);
+}
+*/ 
+
+
 // Função para carregar e renderizar os pacotes
 async function carregarPacotes() {
     try {
