@@ -54,7 +54,7 @@
 }
 
 .foto img{
-    width: 30vw;
+    width: 32vw;
     height: 25vw;
     flex-shrink: 0;
     object-fit: cover;
